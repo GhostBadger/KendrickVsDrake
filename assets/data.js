@@ -160,6 +160,17 @@ const REFS = {
   /* ---- Genius lyrics pages (links sent by George; the lyrics are not reproduced on this site) ---- */
   gNotLikeUs:{a:"Genius",y:"n.d.",t:"Kendrick Lamar – Not Like Us lyrics",kind:"web",cat:"music",retrieved:"November 23, 2026",url:"https://genius.com/Kendrick-lamar-not-like-us-lyrics"},
   /* ---- AI tool (APA 7 format for generative AI; prompts and responses in appendix.html) ---- */
+  spFps:{a:"Drake",y:"2023",t:"First person shooter",desc:"Song featuring J. Cole",album:"For all the dogs",label:"OVO; Republic",kind:"song",cat:"music",url:"https://open.spotify.com/track/7aqfrAY2p9BUSiupwk3svU"},
+  spLikeThat:{a:"Future, Metro Boomin, &amp; Lamar, K.",n:"Future et al.",y:"2024",t:"Like that",album:"We don’t trust you",label:"Freebandz; Boominati; Epic; Republic",kind:"song",cat:"music",url:"https://open.spotify.com/track/2tudvzsrR56uom6smgOcSf"},
+  spPushUps:{a:"Drake",y:"2024",t:"Push ups",label:"OVO; Republic",kind:"song",cat:"music",url:"https://open.spotify.com/track/3eh51r6rFWAlGQRlHx9QnQ"},
+  spEuphoria:{a:"Lamar, K.",n:"Lamar",y:"2024",t:"Euphoria",label:"Interscope",kind:"song",cat:"music",url:"https://open.spotify.com/track/77DRzu7ERs0TX3roZcre7Q"},
+  spFamily:{a:"Drake",y:"2024",t:"Family matters",label:"OVO; Republic",kind:"song",cat:"music",url:"https://open.spotify.com/track/1wFFFzJ5EsKbBWZriAcubN"},
+  spGrahams:{a:"Lamar, K.",n:"Lamar",y:"2024",t:"Meet the Grahams",label:"Interscope",kind:"song",cat:"music",url:"https://open.spotify.com/track/4S8PxReB1UiDR2F5x1lyIR"},
+  spNotLikeUs:{a:"Lamar, K.",n:"Lamar",y:"2024",t:"Not like us",label:"Interscope",kind:"song",cat:"music",url:"https://open.spotify.com/track/6AI3ezQ4o3HUoP6Dhudph3"},
+  rossignol2024:{a:"Rossignol, D.",n:"Rossignol",y:"2024",md:", April 19",t:"Drake officially releases ‘Push Ups’ and the cover art is a brutal Kendrick Lamar diss",s:"Uproxx",kind:"periodical",cat:"news",url:"https://uproxx.com/music/drake-push-ups-kendrick-lamar-diss-cover-art"},
+  fitzgerald2024:{a:"Fitzgerald, T.",n:"Fitzgerald",y:"2024",md:", May 6",t:"All the visual Easter eggs in Drake and Kendrick Lamar’s lyrical battle",s:"XXL",kind:"periodical",cat:"news",url:"https://www.xxlmag.com/drake-kendrick-lamar-easter-eggs-lyrical-battle/"},
+  deville2023:{a:"DeVille, C.",n:"DeVille",y:"2023",md:", October 6",t:"Stream Drake’s new album <i>For All the Dogs</i>",s:"Stereogum",kind:"periodical",cat:"news",url:"https://stereogum.com/2234099/stream-drakes-new-album-for-all-the-dogs/music"},
+  blake2024:{a:"Blake, C.",n:"Blake",y:"2024",md:", May 5",t:"Kendrick Lamar changes “Meet the Grahams” cover art for streaming release, fans debate why",s:"HotNewHipHop",kind:"periodical",cat:"news",url:"https://www.hotnewhiphop.com/797589-kendrick-lamar-changes-meet-the-grahams-cover-art-streaming-fans-debate-hip-hop-news"},
   anthropic2026:{a:"Anthropic",y:"2026",t:"Claude",ver:"Opus 5.5 version",desc:"Large language model",kind:"ai",cat:"ai",url:"https://claude.ai"}
 };
 
@@ -290,34 +301,34 @@ const BACKSTORY = [
 ];
 
 const SONGS = [
-  {id:"fps",play:{yt:"sRs2o36a1Us",ref:"sFps"},artist:"drake",by:"Drake feat. J. Cole",title:"First Person Shooter",d:"2023-10-06",date:"Oct 2023",home:"Album track (streaming)",prologue:true,
+  {id:"fps",cover:{sp:"7aqfrAY2p9BUSiupwk3svU",ref:"spFps",note:`The cover of <i>For All the Dogs</i>, the album this song is on. It was drawn by Drake’s son, Adonis ${c("deville2023")}.`},play:{yt:"sRs2o36a1Us",ref:"sFps"},artist:"drake",by:"Drake feat. J. Cole",title:"First Person Shooter",d:"2023-10-06",date:"Oct 2023",home:"Album track (streaming)",prologue:true,
    answers:[],answeredBy:["likethat"],
    parts:[
     {label:"J. Cole’s verse",text:`Cole asks who the best rapper alive is, naming himself, Drake and Kendrick, and settles on the three of them as a [[bs:fps-bs|“big three”]] ${c("ktvu2024")}.`,back:["fps-bs"]},
     {label:"Why it mattered",text:`Coverage later described the line as the accidental spark. It turned [[bs:control|a decade of quiet rivalry]] into a public ranking that invited a reply ${c("ktvu2024","thegrio2024")}.`,back:["control"]}
    ]},
-  {id:"likethat",play:{yt:"N9bKBAA22Go",ref:"sLikeThat"},artist:"kendrick",by:"Future, Metro Boomin &amp; Kendrick Lamar",title:"Like That",d:"2024-03-22",date:"Mar 22, 2024",home:"Album track (streaming)",
+  {id:"likethat",cover:{sp:"2tudvzsrR56uom6smgOcSf",ref:"spLikeThat",note:`The cover of <i>We Don’t Trust You</i>, Future and Metro Boomin’s album, where Kendrick’s verse first appeared.`},play:{yt:"N9bKBAA22Go",ref:"sLikeThat"},artist:"kendrick",by:"Future, Metro Boomin &amp; Kendrick Lamar",title:"Like That",d:"2024-03-22",date:"Mar 22, 2024",home:"Album track (streaming)",
    answers:["fps"],answeredBy:["pushups","taylormade"],
    parts:[
     {label:"Kendrick’s verse",text:`Kendrick rejects [[song:fps|the big-three idea]] outright and claims the top spot for himself alone ${c("ktvu2024")}.`,back:["fps-bs","control"]},
     {label:"Who else was on it",text:`The album it came from was part of [[bs:wdty|a wider turn against Drake]] by Future, Metro Boomin and their collaborators ${c("rollingstone2024")}.`,back:["wdty"]},
     {label:"Result",text:`The song debuted at No. 1 on the Billboard Hot 100 ${c("stereogum2024")}.`,back:[]}
    ]},
-  {id:"pushups",play:{yt:"HKH9p19PRLA",ref:"sPushUps"},artist:"drake",by:"Drake",title:"Push Ups",d:"2024-04-19",date:"Apr 13 leak · Apr 19 release",home:"Leaked online, then streaming",
+  {id:"pushups",cover:{sp:"3eh51r6rFWAlGQRlHx9QnQ",ref:"spPushUps",note:`A sneaker’s size tag for a size 7 shoe: a jab at Kendrick’s height ${c("rossignol2024","fitzgerald2024")}.`},play:{yt:"HKH9p19PRLA",ref:"sPushUps"},artist:"drake",by:"Drake",title:"Push Ups",d:"2024-04-19",date:"Apr 13 leak · Apr 19 release",home:"Leaked online, then streaming",
    answers:["likethat"],answeredBy:["euphoria"],
    parts:[
     {label:"Title and hook",text:`The title mocks Kendrick’s Instagram workout clips ${c("cbc2024b")}, and the hook claims Kendrick had to hand half his earnings to his old label, Top Dawg Entertainment ${c("uproxx2024b")}.`,back:[]},
     {label:"The pop features",text:`Drake says Kendrick was sent to write verses for [[bs:bad-blood|Maroon 5 and Taylor Swift’s fans]], casting his pop features as label orders ${c("songfacts")}.`,back:["bad-blood"]},
     {label:"Everyone else",text:`Drake also hits Future, Metro Boomin, The Weeknd and Rick Ross for [[bs:wdty|joining the pile-on]] ${c("stereogumLeak")}.`,back:["wdty"]}
    ]},
-  {id:"taylormade",noplay:`There is no official version to play. Drake posted it only on social media and took it down within a week after Tupac’s estate objected ${c("cbc2024a")}.`,artist:"drake",by:"Drake",title:"Taylor Made Freestyle",d:"2024-04-19",date:"Apr 19, 2024",home:"Instagram only, removed Apr 26",
+  {id:"taylormade",nocover:`No official cover. The song was only ever posted on social media.`,noplay:`There is no official version to play. Drake posted it only on social media and took it down within a week after Tupac’s estate objected ${c("cbc2024a")}.`,artist:"drake",by:"Drake",title:"Taylor Made Freestyle",d:"2024-04-19",date:"Apr 19, 2024",home:"Instagram only, removed Apr 26",
    answers:["likethat"],answeredBy:["euphoria"],
    parts:[
     {label:"The AI guests",text:`Drake used [[bs:estate|AI-generated imitations of Tupac Shakur and Snoop Dogg]], two of Kendrick’s West Coast heroes, to goad him into replying ${c("cbc2024b")}.`,back:["estate"]},
     {label:"The Swift taunt",text:`Drake jokes that Kendrick can’t reply until [[bs:swift-week|Taylor Swift finishes her album rollout]] ${c("songfacts")}.`,back:["swift-week","bad-blood"]},
     {label:"Afterlife",text:`[[lg:lg-estate|Tupac’s estate threatened legal action]] and the song came down within a week ${c("cbc2024a")}.`,back:["estate"]}
    ]},
-  {id:"euphoria",play:{yt:"fAqa1ozCuj8",ref:"sEuphoria"},artist:"kendrick",by:"Kendrick Lamar",title:"Euphoria",d:"2024-04-30",date:"Apr 30, 2024",home:"Streaming and YouTube",
+  {id:"euphoria",cover:{sp:"77DRzu7ERs0TX3roZcre7Q",ref:"spEuphoria",note:`A screenshot of a dictionary’s definition of “euphoria.” XXL read it as a jab at Drake, an executive producer of HBO’s <i>Euphoria</i> ${c("fitzgerald2024")}.`},play:{yt:"fAqa1ozCuj8",ref:"sEuphoria"},artist:"kendrick",by:"Kendrick Lamar",title:"Euphoria",d:"2024-04-30",date:"Apr 30, 2024",home:"Streaming and YouTube",
    answers:["pushups","taylormade"],answeredBy:["familymatters"],
    parts:[
     {label:"The title",text:`It nods to [[bs:hbo-euphoria|HBO’s <i>Euphoria</i>]], which Drake executive-produces ${c("npr2024c")}.`,back:["hbo-euphoria"]},
@@ -325,14 +336,14 @@ const SONGS = [
     {label:"AI and ghostwriters",text:`He mocks [[song:taylormade|the AI Tupac verse]] and revives [[bs:meek|the old claim that Drake relies on other writers]] ${c("yahoo2024","npr2024c")}.`,back:["estate","meek"]},
     {label:"Identity and fatherhood",text:`He questions Drake’s authenticity, racial identity and [[bs:adonis|parenting]] ${c("ktvu2024")}.`,back:["adonis"]}
    ]},
-  {id:"six16",noplay:`There is no official upload to play here. Kendrick released it only as an Instagram post, not on YouTube or streaming services ${c("cirisano2024")}.`,artist:"kendrick",by:"Kendrick Lamar",title:"6:16 in LA",d:"2024-05-03",date:"May 3, 2024",home:"Instagram only",
+  {id:"six16",nocover:`No single cover. The song was released only as an Instagram post.`,noplay:`There is no official upload to play here. Kendrick released it only as an Instagram post, not on YouTube or streaming services ${c("cirisano2024")}.`,artist:"kendrick",by:"Kendrick Lamar",title:"6:16 in LA",d:"2024-05-03",date:"May 3, 2024",home:"Instagram only",
    answers:["pushups"],answeredBy:["familymatters"],
    parts:[
     {label:"The title",text:`A timestamp title, borrowing the format of Drake’s own series of timestamped songs ${c("stereogumHP6")}.`,back:[]},
     {label:"The mole",text:`Kendrick hints that people inside Drake’s OVO camp are [[song:hp6|feeding him information]], which set off a wave of fan theories ${c("root2024a")}.`,back:[]},
     {label:"Where it lived",text:`It appeared on Instagram rather than streaming services ${c("cirisano2024")}.`,back:[]}
    ]},
-  {id:"familymatters",play:{yt:"ZkXG3ZrXlbc",ref:"sFamily"},artist:"drake",by:"Drake",title:"Family Matters",d:"2024-05-03",date:"May 3, 2024",home:"Music video and streaming",
+  {id:"familymatters",cover:{sp:"1wFFFzJ5EsKbBWZriAcubN",ref:"spFamily",note:`The single’s cover.`},play:{yt:"ZkXG3ZrXlbc",ref:"sFamily"},artist:"drake",by:"Drake",title:"Family Matters",d:"2024-05-03",date:"May 3, 2024",home:"Music video and streaming",
    answers:["euphoria","six16"],answeredBy:["grahams","notlikeus"],
    parts:[
     {label:"The teaser",text:`Before release, Drake posted a parody of [[bs:take-care|“Buried Alive Interlude,” the <i>Take Care</i> song Kendrick had been featured on]] ${c("phillips2024")}.`,back:["take-care"]},
@@ -340,14 +351,14 @@ const SONGS = [
     {label:"Paternity claim",text:`He suggests one of Kendrick’s children may have been fathered by Kendrick’s business partner, Dave Free ${c("stereogumFM")}.`,back:[]},
     {label:"Turning “Euphoria” around",text:`He answers [[song:euphoria|Kendrick’s questions about his identity]] by pointing at Kendrick’s own family, and takes shots at [[bs:wdty|Metro Boomin, A$AP Rocky and Rick Ross]] ${c("stereogumFM","phillips2024")}.`,back:["wdty"]}
    ]},
-  {id:"grahams",play:{yt:"J_tchksaJCM",ref:"sGrahams"},artist:"kendrick",by:"Kendrick Lamar",title:"Meet the Grahams",d:"2024-05-04",date:"May 3–4, 2024",home:"YouTube",
+  {id:"grahams",cover:{sp:"4S8PxReB1UiDR2F5x1lyIR",ref:"spGrahams",note:`On streaming services the cover is plain black. The original YouTube version showed a pile of items that allegedly exposed Drake, including prescription pills and an Ozempic box with his name on it ${c("fitzgerald2024")}. Kendrick removed that art for the streaming release ${c("blake2024")}.`},play:{yt:"J_tchksaJCM",ref:"sGrahams"},artist:"kendrick",by:"Kendrick Lamar",title:"Meet the Grahams",d:"2024-05-04",date:"May 3–4, 2024",home:"YouTube",
    answers:["familymatters"],answeredBy:["hp6"],
    parts:[
     {label:"A letter to the family",text:`Written as open letters to [[bs:adonis|Drake’s son]], his parents, an alleged daughter and finally Drake himself ${c("fox4_2024")}.`,back:["adonis"]},
     {label:"A second hidden child",text:`Kendrick claims Drake has a secret daughter, echoing [[bs:adonis|how Pusha T exposed Drake’s son in 2018]] ${c("fox4_2024")}.`,back:["adonis"]},
     {label:"Widening the accusations",text:`He calls Drake a deadbeat father and alleges sexual misconduct around Drake’s circle ${c("thegrio2024")}.`,back:[]}
    ]},
-  {id:"notlikeus",genius:"gNotLikeUs",play:{yt:"T6eK-2OQtew",ref:"sNotLikeUs"},artist:"kendrick",by:"Kendrick Lamar",title:"Not Like Us",d:"2024-05-04",date:"May 4, 2024",home:"YouTube and streaming",
+  {id:"notlikeus",cover:{sp:"6AI3ezQ4o3HUoP6Dhudph3",ref:"spNotLikeUs",note:`An aerial photo of Drake’s Toronto home marked with sex-offender map icons. Drake’s lawsuit later pointed to it as a safety threat ${c("fader2025")}.`},genius:"gNotLikeUs",play:{yt:"T6eK-2OQtew",ref:"sNotLikeUs"},artist:"kendrick",by:"Kendrick Lamar",title:"Not Like Us",d:"2024-05-04",date:"May 4, 2024",home:"YouTube and streaming",
    answers:["familymatters"],answeredBy:["hp6"],
    parts:[
     {label:"The sound",text:`A Mustard-produced West Coast party beat with a call-and-response hook, the opposite of the long, dense tracks before it ${c("ap2025","bet2024")}.`,back:[]},
@@ -356,7 +367,7 @@ const SONGS = [
     {label:"The cover art",text:`An aerial photo of Drake’s Toronto home dotted with sex-offender map icons, later cited in [[lg:lg-lawsuit|Drake’s lawsuit]] ${c("fader2025")}.`,back:[]},
     {label:"The “A minor” line",text:`A short pun that became the song’s most-shouted moment, later sung by [[ev:super-bowl|a whole Super Bowl stadium]] ${c("avclub2025")}.`,back:[]}
    ]},
-  {id:"hp6",play:{yt:"HJeY-FXidDQ",ref:"sHP6"},artist:"drake",by:"Drake",title:"The Heart Part 6",d:"2024-05-05",date:"May 5, 2024",home:"YouTube link",
+  {id:"hp6",nocover:`Not on Spotify. The song came out as a YouTube link, so the official upload below is the only version.`,play:{yt:"HJeY-FXidDQ",ref:"sHP6"},artist:"drake",by:"Drake",title:"The Heart Part 6",d:"2024-05-05",date:"May 5, 2024",home:"YouTube link",
    answers:["grahams","notlikeus"],answeredBy:[],
    parts:[
     {label:"The title and cover",text:`The title borrows [[bs:mr-morale|Kendrick’s own “The Heart” series]], and the cover shows an Instagram comment by Dave Free ${c("billboard2024","stereogumHP6")}.`,back:["mr-morale"]},
@@ -627,6 +638,17 @@ const REF_SUMMARIES = {
   sNotLikeUs:`The official audio of “Not Like Us” on Kendrick Lamar’s own YouTube channel.`,
   sHP6:`Drake’s own YouTube upload of “The Heart Part 6.” The song was never released to streaming services, so this upload is its official home.`,
   gNotLikeUs:`Genius’s page for “Not Like Us,” with the full lyrics and line-by-line annotations written by users. The song’s “Read the lyrics on Genius” button links here.`,
+  spFps:`“First Person Shooter” on Spotify, from Drake’s album <i>For All the Dogs</i>. Its player shows the album cover on the Song timeline.`,
+  spLikeThat:`“Like That” on Spotify, from Future and Metro Boomin’s album <i>We Don’t Trust You</i>, where Kendrick’s verse first appeared. Its player shows the album cover on the Song timeline.`,
+  spPushUps:`Drake’s “Push Ups” single on Spotify. Its player shows the single’s cover on the Song timeline.`,
+  spEuphoria:`Kendrick Lamar’s “euphoria” single on Spotify. Its player shows the single’s cover on the Song timeline.`,
+  spFamily:`Drake’s “Family Matters” single on Spotify. Its player shows the single’s cover on the Song timeline.`,
+  spGrahams:`Kendrick Lamar’s “meet the grahams” single on Spotify, where the cover is plain black. Its player appears on the Song timeline.`,
+  spNotLikeUs:`Kendrick Lamar’s “Not Like Us” single on Spotify. Its player shows the single’s cover on the Song timeline.`,
+  rossignol2024:`Uproxx news on Drake’s official release of “Push Ups.” It explains that the cover is a size tag for a size 7 shoe, mocking Kendrick’s height.`,
+  fitzgerald2024:`An XXL gallery of hidden jokes in the feud’s visuals: the shoe-size tag on “Push Ups,” the dictionary definition on “euphoria” (read as a nod to Drake producing HBO’s <i>Euphoria</i>), and the items on the original “meet the grahams” cover.`,
+  deville2023:`Stereogum’s release-day post for Drake’s <i>For All the Dogs</i>, noting that the cover was drawn by his son, Adonis.`,
+  blake2024:`HotNewHipHop on Kendrick removing the original “meet the grahams” cover art for the streaming release, and fans’ theories about why.`,
   anthropic2026:`The AI model used to find and check sources, draft the site’s text and code, and publish it. The full prompts and responses are in the Appendix, which also explains which parts are AI-drafted.`,
   vDeema:`An educational explainer from Deema’s Class on the dismissal and the “floodgates” argument, the worry that allowing this case would invite many more like it.`
 };
@@ -657,6 +679,7 @@ for(const [k,s] of Object.entries(REF_SUMMARIES)) if(REFS[k]) REFS[k].summary = 
     if(r.kind==="journal") body = `${end(r.t)} <i>${r.journal}, ${r.vol}</i>(${r.issue}), ${r.pages}.`;
     else if(r.kind==="video") body = `<i>${r.t}</i> [Video]. YouTube.`;
     else if(r.kind==="audio") body = `<i>${r.t}</i> [Audio]. SoundCloud.`;
+    else if(r.kind==="song") body = (r.album ? `${r.t} [${r.desc||"Song"}]. On <i>${r.album}</i>.` : `<i>${r.t}</i> [${r.desc||"Song"}].`) + ` ${r.label}.`;
     else if(r.kind==="tiktok") body = `${r.t.startsWith("[") ? r.t : `<i>${r.t}</i>`} [Video]. TikTok.`;
     else if(r.kind==="ai") body = `<i>${r.t}</i> (${r.ver}) [${r.desc}].`;
     else if(r.kind==="periodical") body = `${end(r.t)} <i>${r.s}</i>.`;

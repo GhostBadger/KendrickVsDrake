@@ -396,6 +396,10 @@ window.USAGE = {
 "label": "Story · Timeline · Drake sues his own label (Jan 15, 2025)"
 },
 {
+"id": "cover-notlikeus",
+"label": "Songs · Not Like Us · cover art"
+},
+{
 "id": "song-notlikeus",
 "label": "Songs · Not Like Us"
 },
@@ -1140,6 +1144,12 @@ window.USAGE = {
 "label": "Story · Counterpoint"
 }
 ],
+"spNotLikeUs": [
+{
+"id": "cover-notlikeus",
+"label": "Songs · Not Like Us · cover art"
+}
+],
 "sNotLikeUs": [
 {
 "id": "play-notlikeus",
@@ -1446,16 +1456,60 @@ window.USAGE = {
 "page": "appendix.html"
 }
 ],
+"deville2023": [
+{
+"id": "cover-fps",
+"label": "Songs · First Person Shooter · cover art"
+}
+],
+"spFps": [
+{
+"id": "cover-fps",
+"label": "Songs · First Person Shooter · cover art"
+}
+],
 "sFps": [
 {
 "id": "play-fps",
 "label": "Songs · First Person Shooter · player"
 }
 ],
+"spLikeThat": [
+{
+"id": "cover-likethat",
+"label": "Songs · Like That · cover art"
+}
+],
 "sLikeThat": [
 {
 "id": "play-likethat",
 "label": "Songs · Like That · player"
+}
+],
+"rossignol2024": [
+{
+"id": "cover-pushups",
+"label": "Songs · Push Ups · cover art"
+}
+],
+"fitzgerald2024": [
+{
+"id": "cover-pushups",
+"label": "Songs · Push Ups · cover art"
+},
+{
+"id": "cover-euphoria",
+"label": "Songs · Euphoria · cover art"
+},
+{
+"id": "cover-grahams",
+"label": "Songs · Meet the Grahams · cover art"
+}
+],
+"spPushUps": [
+{
+"id": "cover-pushups",
+"label": "Songs · Push Ups · cover art"
 }
 ],
 "sPushUps": [
@@ -1468,6 +1522,12 @@ window.USAGE = {
 {
 "id": "song-pushups",
 "label": "Songs · Push Ups"
+}
+],
+"spEuphoria": [
+{
+"id": "cover-euphoria",
+"label": "Songs · Euphoria · cover art"
 }
 ],
 "sEuphoria": [
@@ -1492,6 +1552,12 @@ window.USAGE = {
 "label": "Songs · The Heart Part 6"
 }
 ],
+"spFamily": [
+{
+"id": "cover-familymatters",
+"label": "Songs · Family Matters · cover art"
+}
+],
 "sFamily": [
 {
 "id": "play-familymatters",
@@ -1502,6 +1568,18 @@ window.USAGE = {
 {
 "id": "song-familymatters",
 "label": "Songs · Family Matters"
+}
+],
+"blake2024": [
+{
+"id": "cover-grahams",
+"label": "Songs · Meet the Grahams · cover art"
+}
+],
+"spGrahams": [
+{
+"id": "cover-grahams",
+"label": "Songs · Meet the Grahams · cover art"
 }
 ],
 "sGrahams": [

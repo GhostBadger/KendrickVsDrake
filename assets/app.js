@@ -7,6 +7,7 @@ const plain = h => { const d=document.createElement("div"); d.innerHTML=h; retur
 const esc = s => String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/"/g,"&quot;");
 const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
 const PHONE = `<svg width="14" height="20" viewBox="0 0 14 20" aria-hidden="true"><rect x="1" y="1" width="12" height="18" rx="2.5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="7" cy="15.6" r="1.1" fill="currentColor"/></svg>`;
+const WAVE = `<svg width="22" height="14" viewBox="0 0 22 14" aria-hidden="true"><path d="M1 7v0M4 4v6M7 2v10M10 5v4M13 1v12M16 3v8M19 5v4M21 6v2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>`;
 const SIDECOL = {drake:"var(--drake)",kendrick:"var(--kendrick)",platform:"var(--accent)",court:"var(--court)",other:"var(--other)"};
 
 /* ---------- citations ---------- */
@@ -166,6 +167,15 @@ function songPlayer(s){
     <p class="spcap">Official upload: <a href="${r.url}" target="_blank" rel="noopener">${r.t}</a> · ${esc(r.a)} (<a class="cite" data-k="${s.play.ref}"></a>)</p>
   </div>`;
 }
+/* Official cover art, shown through Spotify's own player rather than copied onto the site */
+function songCover(s){
+  if(s.nocover) return `<div class="songcover none"><p class="eyebrow">Cover art</p><p>${s.nocover}</p></div>`;
+  if(!s.cover) return "";
+  return `<figure class="songcover" id="cover-${s.id}" data-loc="Songs · ${esc(plain(s.title))} · cover art">
+    <iframe src="https://open.spotify.com/embed/track/${s.cover.sp}?utm_source=generator" title="${esc(plain(s.title))}: cover art and preview on Spotify" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+    <figcaption><span class="eyebrow">Cover art</span> ${s.cover.note} <span class="covsrc">Shown through Spotify’s official player ${c(s.cover.ref)}.</span></figcaption>
+  </figure>`;
+}
 function playSong(yt, start){
   const box = $(".spframe", $("#songpanel")); if(!box) return;
   box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&rel=0${start?`&start=${start}`:""}" title="Song player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
@@ -183,6 +193,7 @@ function selectSong(id){
     <div class="by">${s.by}</div>
     <h2>${s.title}</h2>
     <div class="songmeta"><span><b>Released:</b> ${s.date}</span><span><b>First home:</b> ${s.home}</span></div>
+    ${songCover(s)}
     ${songPlayer(s)}
     <div class="btnrow"><a class="btn" href="${s.genius?REFS[s.genius].url:genius}" target="_blank" rel="noopener">Read the lyrics on Genius ↗</a>${s.genius?`<span class="gcite">(<a class="cite" data-k="${s.genius}"></a>)</span>`:""}</div>
     ${chipList(s.answers,"Answers:")}${chipList(s.answeredBy,"Answered by:")}
@@ -306,21 +317,32 @@ function renderCreators(){
     const n = p.videos.length;
     const slides = p.videos.map((v,j) => {
       const r = REFS[v.ref], t = r ? plain(r.t) : (v.title||"");
-      return {id:`v-${v.ref||p.id+"-"+(j+1)}`, t, html:videoCard(v)};
+      const who = r ? plain(r.a).replace(/\.$/,"") : (v.by||"");
+      const kind = v.platform || "youtube";
+      const thumb = kind==="youtube" ? `https://i.ytimg.com/vi/${v.id}/mqdefault.jpg` : "";
+      const oembed = kind==="tiktok" ? `https://www.tiktok.com/oembed?url=${encodeURIComponent(v.url)}`
+                   : kind==="soundcloud" && r ? `https://soundcloud.com/oembed?format=json&url=${encodeURIComponent(r.url)}` : "";
+      return {id:`v-${v.ref||p.id+"-"+(j+1)}`, t, who, kind, thumb, oembed, type:plain(v.type || (kind==="tiktok"?"TikTok":"")), html:videoCard(v)};
     });
     return `<section class="cwphase" id="${p.id}" data-loc="Creators · ${esc(p.title)}">
       <p class="eyebrow">${String(i+1).padStart(2,"0")} · ${p.when}</p>
       <h2>${p.title}</h2>
       <div class="vcar" data-i="0">
-        <div class="vcar-bar">
-          <button type="button" class="vcar-prev" aria-label="Previous clip" disabled>‹ Prev</button>
-          <div class="vcar-dots" role="tablist" aria-label="Clips in “${esc(plain(p.title))}”">${slides.map((s,j) =>
-            `<button type="button" role="tab" id="${s.id}-tab" aria-controls="${s.id}" aria-selected="${j===0}" tabindex="${j===0?0:-1}" title="${esc(s.t)}">${j+1}</button>`).join("")}</div>
-          <button type="button" class="vcar-next" aria-label="Next clip"${n<2?" disabled":""}>Next ›</button>
-          <span class="vcar-count" aria-live="polite">Clip 1 of ${n}</span>
-        </div>
+        <div class="vcar-strip" role="tablist" aria-label="Clips in “${esc(plain(p.title))}”">${slides.map((s,j) =>
+          `<button type="button" role="tab" class="vprev" id="${s.id}-tab" aria-controls="${s.id}" aria-selected="${j===0}" tabindex="${j===0?0:-1}">
+            <span class="vprev-img ${s.kind}"${s.oembed?` data-oembed="${esc(s.oembed)}"`:""}>${s.thumb?`<img src="${s.thumb}" alt="" loading="lazy" onerror="this.remove()">`:""}
+              <span class="vprev-ph" aria-hidden="true">${s.kind==="tiktok"?PHONE:s.kind==="soundcloud"?WAVE:""}<b>${s.kind==="tiktok"?"TikTok":s.kind==="soundcloud"?"SoundCloud":"YouTube"}</b><small>${esc(s.who)}</small></span>
+              <span class="vprev-n">${j+1}</span></span>
+            <span class="vprev-type">${esc(s.type)}</span>
+            <span class="vprev-t">${esc(s.t)}</span>
+          </button>`).join("")}</div>
         <div class="vcar-stage">${slides.map((s,j) =>
           `<div class="vslide" id="${s.id}" role="tabpanel" aria-labelledby="${s.id}-tab" data-loc="Creators · ${esc(p.title)} · clip ${j+1} of ${n}"${j?" hidden":""}>${s.html}</div>`).join("")}</div>
+        <div class="vcar-bar">
+          <button type="button" class="vcar-prev" aria-label="Previous clip" disabled>‹ Prev</button>
+          <span class="vcar-count" aria-live="polite">Clip 1 of ${n}</span>
+          <button type="button" class="vcar-next" aria-label="Next clip"${n<2?" disabled":""}>Next ›</button>
+        </div>
       </div>
       <div class="summary"><p class="eyebrow">My summary</p><p>${p.summary}</p></div>
     </section>`;
@@ -337,13 +359,28 @@ function renderCreators(){
   $$(".vcar", box).forEach(car => {
     $(".vcar-prev", car).addEventListener("click", () => showSlide(car, +car.dataset.i - 1, true));
     $(".vcar-next", car).addEventListener("click", () => showSlide(car, +car.dataset.i + 1, true));
-    $$(".vcar-dots [role=tab]", car).forEach((t,j) => t.addEventListener("click", () => showSlide(car, j, true)));
-    $(".vcar-dots", car).addEventListener("keydown", e => {
+    $$(".vcar-strip [role=tab]", car).forEach((t,j) => t.addEventListener("click", () => showSlide(car, j, true)));
+    $(".vcar-strip", car).addEventListener("keydown", e => {
       const i = +car.dataset.i, last = $$(".vslide", car).length - 1;
       const to = {ArrowLeft:i-1, ArrowRight:i+1, Home:0, End:last}[e.key];
       if(to===undefined) return;
       e.preventDefault(); showSlide(car, Math.max(0, Math.min(last, to)), true, true);
     });
+  });
+}
+/* TikTok and SoundCloud previews: ask each platform's public oEmbed service for the
+   clip's thumbnail the first time Creator watch opens. If that fails, the labelled
+   placeholder tile stays. */
+let previewsLoaded = false;
+function loadPreviews(){
+  if(previewsLoaded) return; previewsLoaded = true;
+  $$(".vprev-img[data-oembed]").forEach(el => {
+    fetch(el.dataset.oembed).then(r => r.ok ? r.json() : null).then(j => {
+      if(!j || !/^https:\/\//.test(j.thumbnail_url||"")) return;
+      const img = new Image(); img.alt = ""; img.referrerPolicy = "no-referrer";
+      img.onload = () => el.classList.add("has-img"); img.onerror = () => img.remove();
+      img.src = j.thumbnail_url; el.prepend(img);
+    }).catch(() => {});
   });
 }
 /* Stop whatever is playing in a clip that is being hidden: YouTube goes back to its
@@ -352,7 +389,7 @@ function resetSlide(s){
   $$("iframe", s).forEach(f => f._thumb ? f.replaceWith(f._thumb) : f.replaceWith(f.cloneNode(true)));
 }
 function showSlide(car, j, user, focusTab){
-  const slides = $$(".vslide", car), tabs = $$(".vcar-dots [role=tab]", car);
+  const slides = $$(".vslide", car), tabs = $$(".vcar-strip [role=tab]", car);
   if(j < 0 || j >= slides.length) return;
   const cur = +car.dataset.i;
   if(cur !== j){ resetSlide(slides[cur]); slides[cur].hidden = true; }
@@ -362,8 +399,10 @@ function showSlide(car, j, user, focusTab){
   $(".vcar-prev", car).disabled = j === 0;
   $(".vcar-next", car).disabled = j === slides.length - 1;
   $(".vcar-count", car).textContent = `Clip ${j+1} of ${slides.length}`;
-  if(user){ const bar = $(".vcar-bar", car), top = bar.getBoundingClientRect().top;
-    if(top < 0 || top > innerHeight * .6) bar.scrollIntoView({block:"start"}); }
+  const strip = $(".vcar-strip", car);
+  strip.scrollTo({left:Math.max(0, tabs[j].offsetLeft - (strip.clientWidth - tabs[j].offsetWidth)/2), behavior: reduced ? "auto" : "smooth"});
+  if(user){ const top = car.getBoundingClientRect().top;
+    if(top < stackH || top > innerHeight * .6) car.scrollIntoView({block:"start"}); }
 }
 
 /* =================== ROUTER =================== */
@@ -411,6 +450,7 @@ addEventListener("resize", () => { layoutVars(); spy(); });
 function showView(v){
   $$("[data-view]").forEach(s => s.hidden = s.dataset.view !== v);
   layoutVars(); requestAnimationFrame(spy);
+  if(v==="creators") loadPreviews();
   $$(".tabs a[data-tab]").forEach(a => a.setAttribute("aria-current", a.dataset.tab===v ? "page" : "false"));
   if(v==="songs") renderDrop();   // chips need a visible box to measure
   document.title = {story:"Kendrick vs. Drake, Clipped",songs:"Song timeline · Clipped",legal:"Legal timeline · Clipped",creators:"Creator watch · Clipped"}[v];
@@ -419,8 +459,9 @@ function route(){
   const h = decodeURIComponent(location.hash.slice(1));
   if(!h || h==="story"){ showView("story"); if(!h) return; window.scrollTo(0,0); return; }
   if(VIEWS.includes(h)){ showView(h); window.scrollTo(0,0); return; }
-  if(h.startsWith("song-") || h.startsWith("play-")){
-    const id = h.slice(5).split("-")[0];
+  const sm = h.match(/^(song|play|cover)-([a-z0-9]+)/);
+  if(sm){
+    const id = sm[2];
     showView("songs"); selectSong(id);
     const el = $("#"+CSS.escape(h)) || $("#songgrid");
     requestAnimationFrame(()=>{ el.scrollIntoView({block:"start"}); el.classList.add("flash"); });
@@ -471,7 +512,7 @@ route();
   const all = JSON.stringify([EVENTS,SONGS,BACKSTORY,LEGAL,CREATOR_PHASES,LOOP]);
   (all.match(/data-k=\\?"([^"\\]+)\\?"/g)||[]).forEach(m=>used.add(m.replace(/.*data-k=\\?"/,"").replace(/\\?"$/,"")));
   CREATOR_PHASES.forEach(p=>p.videos.forEach(v=>v.ref&&used.add(v.ref)));
-  SONGS.forEach(s=>{ if(s.play) used.add(s.play.ref); if(s.genius) used.add(s.genius); });
+  SONGS.forEach(s=>{ if(s.play) used.add(s.play.ref); if(s.genius) used.add(s.genius); if(s.cover) used.add(s.cover.ref); });
   const unused = Object.keys(REFS).filter(k=>!used.has(k));
   if(unused.length) console.warn("Uncited references:", unused.join(", "));
 })();
