@@ -184,7 +184,7 @@ function selectSong(id){
     <h2>${s.title}</h2>
     <div class="songmeta"><span><b>Released:</b> ${s.date}</span><span><b>First home:</b> ${s.home}</span></div>
     ${songPlayer(s)}
-    <div class="btnrow"><a class="btn" href="${genius}" target="_blank" rel="noopener">Read the lyrics on Genius ↗</a></div>
+    <div class="btnrow"><a class="btn" href="${s.genius?REFS[s.genius].url:genius}" target="_blank" rel="noopener">Read the lyrics on Genius ↗</a>${s.genius?`<span class="gcite">(<a class="cite" data-k="${s.genius}"></a>)</span>`:""}</div>
     ${chipList(s.answers,"Answers:")}${chipList(s.answeredBy,"Answered by:")}
     <p class="xlegend">Underlined phrases jump to what they refer to: <span class="xl xl-bs">backstory</span> <span class="xl xl-song">another song</span> <span class="xl xl-lg">legal timeline</span> <span class="xl xl-ev">story timeline</span></p>
     <ol class="parts">${s.parts.map((p,i)=>{ const back=[...new Set([...p.back,...inlineBs(p.text)])]; return `<li id="song-${s.id}-${i+1}">
@@ -369,7 +369,7 @@ route();
   const all = JSON.stringify([EVENTS,SONGS,BACKSTORY,LEGAL,CREATOR_PHASES,LOOP]);
   (all.match(/data-k=\\?"([^"\\]+)\\?"/g)||[]).forEach(m=>used.add(m.replace(/.*data-k=\\?"/,"").replace(/\\?"$/,"")));
   CREATOR_PHASES.forEach(p=>p.videos.forEach(v=>v.ref&&used.add(v.ref)));
-  SONGS.forEach(s=>s.play&&used.add(s.play.ref));
+  SONGS.forEach(s=>{ if(s.play) used.add(s.play.ref); if(s.genius) used.add(s.genius); });
   const unused = Object.keys(REFS).filter(k=>!used.has(k));
   if(unused.length) console.warn("Uncited references:", unused.join(", "));
 })();

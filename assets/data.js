@@ -116,6 +116,8 @@ const REFS = {
   sGrahams:{a:"Kendrick Lamar - Topic",y:"2024",md:", May",t:"meet the grahams",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=J_tchksaJCM"},
   sNotLikeUs:{a:"Kendrick Lamar",y:"2024",md:", May 4",t:"Not Like Us",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=T6eK-2OQtew"},
   sHP6:{a:"Drake",y:"2024",md:", May",t:"THE HEART PART 6 - DRAKE",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=HJeY-FXidDQ"},
+  /* ---- Genius lyrics pages (links sent by George; the lyrics are not reproduced on this site) ---- */
+  gNotLikeUs:{a:"Genius",y:"n.d.",t:"Kendrick Lamar – Not Like Us lyrics",kind:"web",cat:"music",retrieved:"November 23, 2026",url:"https://genius.com/Kendrick-lamar-not-like-us-lyrics"},
   /* ---- AI tool (APA 7 format for generative AI; prompts and responses in appendix.html) ---- */
   anthropic2026:{a:"Anthropic",y:"2026",t:"Claude",ver:"Opus 5.5 version",desc:"Large language model",kind:"ai",cat:"ai",url:"https://claude.ai"}
 };
@@ -304,7 +306,7 @@ const SONGS = [
     {label:"A second hidden child",text:`Kendrick claims Drake has a secret daughter, echoing [[bs:adonis|how Pusha T exposed Drake’s son in 2018]] ${c("fox4_2024")}.`,back:["adonis"]},
     {label:"Widening the accusations",text:`He calls Drake a deadbeat father and alleges sexual misconduct around Drake’s circle ${c("thegrio2024")}.`,back:[]}
    ]},
-  {id:"notlikeus",play:{yt:"T6eK-2OQtew",ref:"sNotLikeUs"},artist:"kendrick",by:"Kendrick Lamar",title:"Not Like Us",d:"2024-05-04",date:"May 4, 2024",home:"YouTube and streaming",
+  {id:"notlikeus",genius:"gNotLikeUs",play:{yt:"T6eK-2OQtew",ref:"sNotLikeUs"},artist:"kendrick",by:"Kendrick Lamar",title:"Not Like Us",d:"2024-05-04",date:"May 4, 2024",home:"YouTube and streaming",
    answers:["familymatters"],answeredBy:["hp6"],
    parts:[
     {label:"The sound",text:`A Mustard-produced West Coast party beat with a call-and-response hook, the opposite of the long, dense tracks before it ${c("ap2025","bet2024")}.`,back:[]},
@@ -528,6 +530,7 @@ const REF_SUMMARIES = {
   sGrahams:`The official audio of Kendrick’s “meet the grahams,” auto-published to YouTube by his label’s distributor (a “Topic” channel).`,
   sNotLikeUs:`The official audio of “Not Like Us” on Kendrick Lamar’s own YouTube channel.`,
   sHP6:`Drake’s own YouTube upload of “The Heart Part 6.” The song was never released to streaming services, so this upload is its official home.`,
+  gNotLikeUs:`Genius’s page for “Not Like Us,” with the full lyrics and line-by-line annotations written by users. The song’s “Read the lyrics on Genius” button links here.`,
   anthropic2026:`The AI model used to find and check sources, draft the site’s text and code, and publish it. The full prompts and responses are in the Appendix, which also explains which parts are AI-drafted.`,
   vDeema:`An educational explainer from Deema’s Class on the dismissal and the “floodgates” argument, the worry that allowing this case would invite many more like it.`
 };
