@@ -944,8 +944,8 @@ window.USAGE = {
 "label": "Story · Open verse · Who joined in"
 },
 {
-"id": "cw-openverse",
-"label": "Creators · The open verse: fans write the disses"
+"id": "v-tDuolingo",
+"label": "Creators · The open verse: fans write the disses · clip 5 of 5"
 }
 ],
 "cowen2024": [
@@ -960,8 +960,8 @@ window.USAGE = {
 "label": "Story · Open verse · Who joined in"
 },
 {
-"id": "cw-openverse",
-"label": "Creators · The open verse: fans write the disses"
+"id": "v-tJustin",
+"label": "Creators · The open verse: fans write the disses · clip 4 of 5"
 }
 ],
 "lawrence2024": [
@@ -1054,8 +1054,8 @@ window.USAGE = {
 "label": "Story · J. Cole · How it happened"
 },
 {
-"id": "cw-cole",
-"label": "Creators · The one who walked away: J. Cole"
+"id": "v-tBeach",
+"label": "Creators · The one who walked away: J. Cole · clip 2 of 3"
 }
 ],
 "iolPA": [
@@ -1330,104 +1330,104 @@ window.USAGE = {
 ],
 "vKai": [
 {
-"id": "cw-live",
-"label": "Creators · The 16 days: watching it live"
+"id": "v-vKai",
+"label": "Creators · The 16 days: watching it live · clip 1 of 3"
 }
 ],
 "vGabs": [
 {
-"id": "cw-live",
-"label": "Creators · The 16 days: watching it live"
+"id": "v-vGabs",
+"label": "Creators · The 16 days: watching it live · clip 2 of 3"
 }
 ],
 "vFantano": [
 {
-"id": "cw-live",
-"label": "Creators · The 16 days: watching it live"
+"id": "v-vFantano",
+"label": "Creators · The 16 days: watching it live · clip 3 of 3"
 }
 ],
 "vRDC": [
 {
-"id": "cw-memes",
-"label": "Creators · Memes, skits and an AI hit"
+"id": "v-vRDC",
+"label": "Creators · Memes, skits and an AI hit · clip 1 of 3"
 }
 ],
 "vWillonius": [
 {
-"id": "cw-memes",
-"label": "Creators · Memes, skits and an AI hit"
+"id": "v-vWillonius",
+"label": "Creators · Memes, skits and an AI hit · clip 2 of 3"
 }
 ],
 "vTracklib": [
 {
-"id": "cw-memes",
-"label": "Creators · Memes, skits and an AI hit"
+"id": "v-vTracklib",
+"label": "Creators · Memes, skits and an AI hit · clip 3 of 3"
 }
 ],
 "vMetroBeat": [
 {
-"id": "cw-openverse",
-"label": "Creators · The open verse: fans write the disses"
+"id": "v-vMetroBeat",
+"label": "Creators · The open verse: fans write the disses · clip 1 of 5"
 }
 ],
 "vYuno": [
 {
-"id": "cw-openverse",
-"label": "Creators · The open verse: fans write the disses"
+"id": "v-vYuno",
+"label": "Creators · The open verse: fans write the disses · clip 2 of 5"
 }
 ],
 "tCharlie": [
 {
-"id": "cw-openverse",
-"label": "Creators · The open verse: fans write the disses"
+"id": "v-tCharlie",
+"label": "Creators · The open verse: fans write the disses · clip 3 of 5"
 }
 ],
 "vFrontStoop": [
 {
-"id": "cw-cole",
-"label": "Creators · The one who walked away: J. Cole"
+"id": "v-vFrontStoop",
+"label": "Creators · The one who walked away: J. Cole · clip 1 of 3"
 }
 ],
 "vPortAntonio": [
 {
-"id": "cw-cole",
-"label": "Creators · The one who walked away: J. Cole"
+"id": "v-vPortAntonio",
+"label": "Creators · The one who walked away: J. Cole · clip 3 of 3"
 }
 ],
 "vGNX": [
 {
-"id": "cw-lap",
-"label": "Creators · The victory lap"
+"id": "v-vGNX",
+"label": "Creators · The victory lap · clip 1 of 2"
 }
 ],
 "vNFL": [
 {
-"id": "cw-lap",
-"label": "Creators · The victory lap"
+"id": "v-vNFL",
+"label": "Creators · The victory lap · clip 2 of 2"
 }
 ],
 "vVill": [
 {
-"id": "cw-court",
-"label": "Creators · The courtroom: creators become legal explainers"
+"id": "v-vVill",
+"label": "Creators · The courtroom: creators become legal explainers · clip 1 of 4"
 }
 ],
 "vABC7": [
 {
-"id": "cw-court",
-"label": "Creators · The courtroom: creators become legal explainers"
+"id": "v-vABC7",
+"label": "Creators · The courtroom: creators become legal explainers · clip 2 of 4"
 }
 ],
 "vMcCune": [
 {
-"id": "cw-court",
-"label": "Creators · The courtroom: creators become legal explainers"
+"id": "v-vMcCune",
+"label": "Creators · The courtroom: creators become legal explainers · clip 3 of 4"
 }
 ],
 "vDeema": [
 {
-"id": "cw-court",
-"label": "Creators · The courtroom: creators become legal explainers"
+"id": "v-vDeema",
+"label": "Creators · The courtroom: creators become legal explainers · clip 4 of 4"
 }
 ],
 "anthropic2026": [

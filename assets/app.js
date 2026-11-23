@@ -300,26 +300,117 @@ function videoCard(v){
 }
 function renderCreators(){
   const box = $("#cwphases"); if(!box) return;
-  box.innerHTML = CREATOR_PHASES.map((p,i) => `<section class="cwphase" id="${p.id}" data-loc="Creators · ${esc(p.title)}">
+  const nav = $("#cwnav");
+  if(nav) nav.insertAdjacentHTML("beforeend", CREATOR_PHASES.map(p => `<a href="#${p.id}">${esc(p.nav||plain(p.title))}</a>`).join(""));
+  box.innerHTML = CREATOR_PHASES.map((p,i) => {
+    const n = p.videos.length;
+    const slides = p.videos.map((v,j) => {
+      const r = REFS[v.ref], t = r ? plain(r.t) : (v.title||"");
+      return {id:`v-${v.ref||p.id+"-"+(j+1)}`, t, html:videoCard(v)};
+    });
+    return `<section class="cwphase" id="${p.id}" data-loc="Creators · ${esc(p.title)}">
       <p class="eyebrow">${String(i+1).padStart(2,"0")} · ${p.when}</p>
       <h2>${p.title}</h2>
-      <div class="vgrid">${p.videos.map(videoCard).join("")}</div>
+      <div class="vcar" data-i="0">
+        <div class="vcar-bar">
+          <button type="button" class="vcar-prev" aria-label="Previous clip" disabled>‹ Prev</button>
+          <div class="vcar-dots" role="tablist" aria-label="Clips in “${esc(plain(p.title))}”">${slides.map((s,j) =>
+            `<button type="button" role="tab" id="${s.id}-tab" aria-controls="${s.id}" aria-selected="${j===0}" tabindex="${j===0?0:-1}" title="${esc(s.t)}">${j+1}</button>`).join("")}</div>
+          <button type="button" class="vcar-next" aria-label="Next clip"${n<2?" disabled":""}>Next ›</button>
+          <span class="vcar-count" aria-live="polite">Clip 1 of ${n}</span>
+        </div>
+        <div class="vcar-stage">${slides.map((s,j) =>
+          `<div class="vslide" id="${s.id}" role="tabpanel" aria-labelledby="${s.id}-tab" data-loc="Creators · ${esc(p.title)} · clip ${j+1} of ${n}"${j?" hidden":""}>${s.html}</div>`).join("")}</div>
+      </div>
       <div class="summary"><p class="eyebrow">My summary</p><p>${p.summary}</p></div>
-    </section>`).join("");
+    </section>`;
+  }).join("");
   $$(".vthumb", box).forEach(b => b.addEventListener("click", () => {
     const f = document.createElement("iframe");
     f.src = `https://www.youtube-nocookie.com/embed/${b.dataset.yt}?autoplay=1&rel=0`;
     f.title = b.getAttribute("aria-label").replace(/^Play: /,"");
     f.allow = "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
     f.allowFullscreen = true; f.referrerPolicy = "strict-origin-when-cross-origin";
+    f._thumb = b;
     b.replaceWith(f);
   }));
+  $$(".vcar", box).forEach(car => {
+    $(".vcar-prev", car).addEventListener("click", () => showSlide(car, +car.dataset.i - 1, true));
+    $(".vcar-next", car).addEventListener("click", () => showSlide(car, +car.dataset.i + 1, true));
+    $$(".vcar-dots [role=tab]", car).forEach((t,j) => t.addEventListener("click", () => showSlide(car, j, true)));
+    $(".vcar-dots", car).addEventListener("keydown", e => {
+      const i = +car.dataset.i, last = $$(".vslide", car).length - 1;
+      const to = {ArrowLeft:i-1, ArrowRight:i+1, Home:0, End:last}[e.key];
+      if(to===undefined) return;
+      e.preventDefault(); showSlide(car, Math.max(0, Math.min(last, to)), true, true);
+    });
+  });
+}
+/* Stop whatever is playing in a clip that is being hidden: YouTube goes back to its
+   thumbnail, TikTok and SoundCloud frames are swapped for fresh (unloaded) copies. */
+function resetSlide(s){
+  $$("iframe", s).forEach(f => f._thumb ? f.replaceWith(f._thumb) : f.replaceWith(f.cloneNode(true)));
+}
+function showSlide(car, j, user, focusTab){
+  const slides = $$(".vslide", car), tabs = $$(".vcar-dots [role=tab]", car);
+  if(j < 0 || j >= slides.length) return;
+  const cur = +car.dataset.i;
+  if(cur !== j){ resetSlide(slides[cur]); slides[cur].hidden = true; }
+  slides[j].hidden = false; car.dataset.i = j;
+  tabs.forEach((t,k) => { t.setAttribute("aria-selected", k===j); t.tabIndex = k===j ? 0 : -1; });
+  if(focusTab) tabs[j].focus();
+  $(".vcar-prev", car).disabled = j === 0;
+  $(".vcar-next", car).disabled = j === slides.length - 1;
+  $(".vcar-count", car).textContent = `Clip ${j+1} of ${slides.length}`;
+  if(user){ const bar = $(".vcar-bar", car), top = bar.getBoundingClientRect().top;
+    if(top < 0 || top > innerHeight * .6) bar.scrollIntoView({block:"start"}); }
 }
 
 /* =================== ROUTER =================== */
 const VIEWS = ["story","songs","legal","creators"];
+/* ---------- sticky section menus (.subnav) ----------
+   The site header and the open view's section menu both stick to the top, so anchor
+   jumps are padded by their combined height, and the menu link for the section on
+   screen is highlighted and kept scrolled into view inside the menu. */
+let stackH = 100;
+function layoutVars(){
+  const head = $(".sitehead"), hh = head ? head.offsetHeight : 0;
+  const sub = $$(".subnav").find(n => n.offsetParent !== null), sh = sub ? sub.offsetHeight : 0;
+  document.documentElement.style.setProperty("--headh", hh + "px");
+  stackH = hh + sh;
+  document.documentElement.style.scrollPaddingTop = (stackH + 10) + "px";
+}
+function fadeEdges(w){
+  const max = w.scrollWidth - w.clientWidth;
+  w.classList.toggle("fade-l", max > 2 && w.scrollLeft > 2);
+  w.classList.toggle("fade-r", max > 2 && w.scrollLeft < max - 2);
+}
+$$(".subnav .wrap").forEach(w => w.addEventListener("scroll", () => fadeEdges(w), {passive:true}));
+let spyTick = 0;
+function spy(){
+  spyTick = 0;
+  $$(".subnav").forEach(nav => {
+    if(nav.offsetParent === null) return;
+    fadeEdges($(".wrap", nav));
+    const links = $$("a[href^='#']", nav);
+    let cur = links[0];
+    links.forEach(a => { const t = document.getElementById(a.getAttribute("href").slice(1));
+      if(t && t.offsetParent !== null && t.getBoundingClientRect().top <= stackH + 40) cur = a; });
+    if(innerHeight + scrollY >= document.documentElement.scrollHeight - 4) cur = links[links.length-1];
+    links.forEach(a => a === cur ? a.setAttribute("aria-current","location") : a.removeAttribute("aria-current"));
+    if(cur && cur !== nav._cur){
+      nav._cur = cur;
+      const w = $(".wrap", nav), left = cur.offsetLeft - (w.clientWidth - cur.offsetWidth)/2;
+      w.scrollTo({left:Math.max(0,left), behavior: reduced ? "auto" : "smooth"});
+    }
+  });
+}
+addEventListener("scroll", () => { if(!spyTick) spyTick = requestAnimationFrame(spy); }, {passive:true});
+addEventListener("resize", () => { layoutVars(); spy(); });
+
 function showView(v){
   $$("[data-view]").forEach(s => s.hidden = s.dataset.view !== v);
+  layoutVars(); requestAnimationFrame(spy);
   $$(".tabs a[data-tab]").forEach(a => a.setAttribute("aria-current", a.dataset.tab===v ? "page" : "false"));
   if(v==="songs") renderDrop();   // chips need a visible box to measure
   document.title = {story:"Kendrick vs. Drake, Clipped",songs:"Song timeline · Clipped",legal:"Legal timeline · Clipped",creators:"Creator watch · Clipped"}[v];
@@ -339,6 +430,11 @@ function route(){
   if(el){
     const v = el.closest("[data-view]");
     if(v) showView(v.dataset.view);
+    const slide = el.closest(".vslide");
+    if(slide){ const car = slide.closest(".vcar");
+      showSlide(car, $$(".vslide", car).indexOf(slide));
+      requestAnimationFrame(()=>{ car.scrollIntoView({block:"start"}); slide.classList.remove("flash"); void slide.offsetWidth; slide.classList.add("flash"); });
+      return; }
     if(h.startsWith("bs-")) requestAnimationFrame(()=>focusBackstory(h.slice(3)));
     else requestAnimationFrame(()=>{ el.scrollIntoView({block:"start"}); if(el.classList.contains("item")||el.classList.contains("lcard")||el.classList.contains("cwphase")){ el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); } });
   }
@@ -364,6 +460,7 @@ $$(".phasejump button").forEach(b => b.addEventListener("click", () => {
 $("#loopPrev").addEventListener("click", () => setLoop(loopIdx-1));
 $("#loopNext").addEventListener("click", () => setLoop(loopIdx+1));
 window.addEventListener("hashchange", route);
+addEventListener("load", () => { layoutVars(); spy(); });
 // re-layout song chips once fonts load (widths change)
 if(document.fonts && document.fonts.ready) document.fonts.ready.then(()=>{ renderDrop(); selectSong(currentSong); });
 route();

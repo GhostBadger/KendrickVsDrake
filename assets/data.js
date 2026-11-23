@@ -422,21 +422,21 @@ const LEGAL = [
    (TikToks also need an entry in REFS if you want them in the references.)
    --------------------------------------------------------------------- */
 const CREATOR_PHASES = [
-  {id:"cw-live",title:"The 16 days: watching it live",when:"April – May 2024",
+  {id:"cw-live",nav:"Watching live",title:"The 16 days: watching it live",when:"April – May 2024",
    videos:[
     {platform:"youtube",id:"poB1u5p7t2A",ref:"vKai",type:"Livestream clip",why:"A streamer hearing a diss for the first time, live, with his chat."},
     {platform:"youtube",id:"eihg-YPMWU0",ref:"vGabs",type:"Reaction compilation",why:"Several streamers’ reactions to one song cut into a single video."},
     {platform:"youtube",id:"qEvk9LlnTUs",ref:"vFantano",type:"Critic’s livestream clip",why:"A music critic reacting to a reply that arrived within the hour."}
    ],
    summary:`In the first days, most people didn’t meet these songs on their own. They met them through someone else’s face. Kai Cenat reacted to “Family Matters” live in front of his chat, and channels like GabsMusicTV cut several streamers’ reactions into one video, so a single song produced dozens of “first listens.” Fantano’s reaction to “Meet the Grahams” shows how fast it moved: a critic reviewing a reply that dropped before people had finished reacting to the song it answered. What stands out to me is that the reaction became the news. People wanted to know what was said, and also how Kai took it.`},
-  {id:"cw-memes",title:"Memes, skits and an AI hit",when:"May 2024",
+  {id:"cw-memes",nav:"Memes & skits",title:"Memes, skits and an AI hit",when:"May 2024",
    videos:[
     {platform:"youtube",id:"v-RJnOMcQxU",ref:"vRDC",type:"Skit compilation",why:"RDCWorld1’s comedy skits acting out each round, stitched in order."},
     {platform:"youtube",id:"1uW_AUwEv-0",ref:"vWillonius",type:"AI-made original",why:"The comedian’s AI-generated parody song that Metro Boomin sampled."},
     {platform:"youtube",id:"VGGMQChuQHg",ref:"vTracklib",type:"Explainer",why:"A sample-breakdown channel explaining that the “vintage” sample was AI."}
    ],
    summary:`Once the songs were out, creators started retelling the feud as comedy. RDCWorld1’s skits turned each diss into a scene, and a fan channel compiled them in order, which is basically a timeline told through jokes. “BBL Drizzy” shows the other side: a comedian made a fake 1970s soul song with AI, a famous producer sampled it, and thousands of people rapped or danced over it. TRACKLIB’s breakdown did the kind of checking a journalist would do and showed that the “old” sample was brand new and machine-made. For me, this phase is where the feud stopped being about who was right and became something anyone could join.`},
-  {id:"cw-openverse",title:"The open verse: fans write the disses",when:"May 2024",
+  {id:"cw-openverse",nav:"Open verse",title:"The open verse: fans write the disses",when:"May 2024",
    videos:[
     {platform:"soundcloud",id:"1814779140",ref:"vMetroBeat",type:"The beat itself",why:"Metro Boomin’s free upload that started the contest."},
     {platform:"youtube",id:"CwQWrbkBmmM",ref:"vYuno",type:"Contest entry",why:"One of the most-watched freestyles over the beat, from the rapper’s own channel."},
@@ -445,20 +445,20 @@ const CREATOR_PHASES = [
     {platform:"tiktok",id:"7365866029420973355",ref:"tDuolingo",url:"https://www.tiktok.com/@duolingoenglishtest/video/7365866029420973355",type:"Brand joins in",why:"Even the Duolingo owl showed up."}
    ],
    summary:`This is the phase where the audience stopped watching the feud and started writing it. Metro Boomin posted a free beat with a prize, and within days people were rapping, singing and dancing over it in different genres and languages. Yuno Miles’s freestyle trended on YouTube, a comedian’s skit about the beat got millions of views in a day ${c("kymBBL")}, one creator built a whole series out of entries in other languages, and even the Duolingo owl joined in. What stands out to me is that the joke kept going after the actual battle had ended. A template can outlive the event it came from.`},
-  {id:"cw-cole",title:"The one who walked away: J. Cole",when:"April – October 2024",
+  {id:"cw-cole",nav:"J. Cole",title:"The one who walked away: J. Cole",when:"April – October 2024",
    videos:[
     {platform:"youtube",id:"hOmx8boJ4E8",ref:"vFrontStoop",type:"Commentary",why:"A talk show reacting to the apology the week it happened."},
     {platform:"tiktok",id:"7366500969762426158",ref:"tBeach",url:"https://www.tiktok.com/@2kold.fr/video/7366500969762426158",type:"Fan video",why:"A chance meeting at the beach that people treated as proof of the memes."},
     {platform:"youtube",id:"s_QGwQheU2s",ref:"vPortAntonio",type:"Official audio",why:"Cole’s own explanation, six months later."}
    ],
    summary:`Cole is the only person in this feud whose most famous moment is walking away. The apology happened on a festival stage, but most people saw it through phone clips and through commentary shows like The FrontStoop’s, where the first reaction was disappointment. A month later, the same exit had become a meme, and a stranger’s beach video of Cole was treated as proof that he was at peace ${c("uproxxBeach")}. “Port Antonio” was his own answer, released straight to Instagram and YouTube. What I notice is that Cole barely had to post anything for his story to keep going. Other people’s clips did that for him.`},
-  {id:"cw-lap",title:"The victory lap",when:"November 2024 – February 2025",
+  {id:"cw-lap",nav:"Victory lap",title:"The victory lap",when:"November 2024 – February 2025",
    videos:[
     {platform:"youtube",id:"cFCLqrCIDBk",ref:"vGNX",type:"Livestream re-upload",why:"A critic’s first listen to the surprise album the feud set up."},
     {platform:"youtube",id:"KDorKy-13ak",ref:"vNFL",type:"Official broadcast",why:"The NFL’s own upload of the halftime show that closed with “Not Like Us.”"}
    ],
    summary:`By this point, creators weren’t deciding who won anymore. They were celebrating a result everyone already accepted. The GNX reaction stream treats Kendrick as the champion arriving with new music, and the NFL’s official upload of the halftime show is a big institution putting out the same moment fans had been chanting for months. Within hours, that broadcast was cut back into short clips and memes, like Kendrick’s grin on the “Say Drake” line ${c("carry2025")}. The loop came full circle: the feed’s verdict went mainstream, and the mainstream moment went straight back to the feed.`},
-  {id:"cw-court",title:"The courtroom: creators become legal explainers",when:"January 2025 – now",
+  {id:"cw-court",nav:"Courtroom",title:"The courtroom: creators become legal explainers",when:"January 2025 – now",
    videos:[
     {platform:"youtube",id:"dIJSC6yPr2g",ref:"vVill",type:"Commentary",why:"Covers streamers being named in Drake’s federal complaint."},
     {platform:"youtube",id:"KUPG_8tGPdk",ref:"vABC7",type:"TV news",why:"A local TV station’s report on the dismissal, for comparison."},
