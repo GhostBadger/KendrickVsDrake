@@ -80,6 +80,10 @@ window.USAGE = {
 "label": "Story · Timeline · “Push Ups” leaks, then drops (Apr 13 & 19, 2024)"
 },
 {
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+},
+{
 "id": "coverage",
 "label": "Story · Who covered it, and how"
 },
@@ -124,6 +128,10 @@ window.USAGE = {
 {
 "id": "ev-shooting",
 "label": "Story · Timeline · Shooting outside Drake’s Toronto home (May 7, 2024)"
+},
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
 },
 {
 "id": "coverage",
@@ -256,6 +264,16 @@ window.USAGE = {
 {
 "id": "song-six16",
 "label": "Songs · 6:16 in LA"
+}
+],
+"xxlRemoved": [
+{
+"id": "ev-cole",
+"label": "Story · Timeline · J. Cole steps out (Apr 7, 2024)"
+},
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
 }
 ],
 "mercante2024": [
@@ -964,6 +982,148 @@ window.USAGE = {
 "label": "Story · Open verse · Press coverage"
 }
 ],
+"uproxxDrill": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+}
+],
+"billboardCole": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+}
+],
+"usatodayCole": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+},
+{
+"id": "cole-check",
+"label": "Story · J. Cole · Did Kendrick tell him to step out?"
+}
+],
+"stereogumCole": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+}
+],
+"kymCole": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+},
+{
+"id": "cole-verdict",
+"label": "Story · J. Cole · How the verdict flipped"
+},
+{
+"id": "cole-means",
+"label": "Story · J. Cole · What it means"
+}
+],
+"rapupCole": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+},
+{
+"id": "cole-check",
+"label": "Story · J. Cole · Did Kendrick tell him to step out?"
+}
+],
+"uproxxBeach": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+},
+{
+"id": "cole-check",
+"label": "Story · J. Cole · Did Kendrick tell him to step out?"
+},
+{
+"id": "cw-cole",
+"label": "Creators · The one who walked away: J. Cole"
+}
+],
+"tBeach": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+},
+{
+"id": "cw-cole",
+"label": "Creators · The one who walked away: J. Cole"
+}
+],
+"iolPA": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+}
+],
+"hypebeastPA": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+},
+{
+"id": "cole-verdict",
+"label": "Story · J. Cole · How the verdict flipped"
+}
+],
+"fitzgerald2026": [
+{
+"id": "cole-flow",
+"label": "Story · J. Cole · How it happened"
+},
+{
+"id": "cole-check",
+"label": "Story · J. Cole · Did Kendrick tell him to step out?"
+}
+],
+"horvath2024": [
+{
+"id": "cole-check",
+"label": "Story · J. Cole · Did Kendrick tell him to step out?"
+},
+{
+"id": "cole-verdict",
+"label": "Story · J. Cole · How the verdict flipped"
+}
+],
+"jackson2024": [
+{
+"id": "cole-verdict",
+"label": "Story · J. Cole · How the verdict flipped"
+}
+],
+"elibert2024": [
+{
+"id": "cole-verdict",
+"label": "Story · J. Cole · How the verdict flipped"
+}
+],
+"sportskeedaPopOut": [
+{
+"id": "cole-verdict",
+"label": "Story · J. Cole · How the verdict flipped"
+}
+],
+"sportskeedaOschino": [
+{
+"id": "cole-verdict",
+"label": "Story · J. Cole · How the verdict flipped"
+}
+],
+"onyewuchiCole": [
+{
+"id": "cole-verdict",
+"label": "Story · J. Cole · How the verdict flipped"
+}
+],
 "bradley2024": [
 {
 "id": "coverage",
@@ -1220,6 +1380,18 @@ window.USAGE = {
 {
 "id": "cw-openverse",
 "label": "Creators · The open verse: fans write the disses"
+}
+],
+"vFrontStoop": [
+{
+"id": "cw-cole",
+"label": "Creators · The one who walked away: J. Cole"
+}
+],
+"vPortAntonio": [
+{
+"id": "cw-cole",
+"label": "Creators · The one who walked away: J. Cole"
 }
 ],
 "vGNX": [

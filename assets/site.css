@@ -488,3 +488,19 @@ a.xl:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
 .ovcols{margin-top:22px}
 .ovcols .local{max-width:none}
 .vcard.sc iframe{width:100%;height:300px;border:0;display:block;aspect-ratio:auto}
+
+/* J. Cole case study */
+.factcheck{margin:24px 0 8px;max-width:80ch;background:var(--card);border:1px solid var(--line);border-left:5px solid var(--court);border-radius:var(--radius);padding:14px 18px}
+.factcheck .eyebrow{color:var(--court);margin:0}
+.factcheck h3{font-size:20px;margin:2px 0 6px}
+.factcheck p{font-size:16px;margin:0}
+.vflip{list-style:none;margin:6px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;position:relative}
+.vflip li{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px;border-top:5px solid var(--vc)}
+.vflip .v1{--vc:var(--kendrick)}
+.vflip .v2{--vc:var(--accent)}
+.vflip .v3{--vc:var(--accent)}
+.vflip .v4{--vc:var(--muted)}
+.vflip .vd{display:block;font:600 12px var(--font-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.vflip .vtag{display:block;font-size:19px;font-weight:700;margin:2px 0 4px}
+.vflip p{font-size:15px;margin:0}
+.factcheck p.eyebrow{font-size:13px}
