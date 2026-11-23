@@ -465,6 +465,10 @@ details.tools li{margin-bottom:3px}
 .spframe .vthumb{border-radius:0}
 .spframe iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 .spcap{font-size:13.5px;color:var(--muted);margin:6px 0 0;max-width:560px}
+.songbd{margin:22px 0 4px;padding-top:16px;border-top:1px solid var(--line);max-width:720px}
+.songbd .eyebrow{margin:0 0 4px}
+.bdlead{font-size:15px;margin:0 0 8px;max-width:560px}
+.bdnote{font-size:13px;color:var(--muted);margin:6px 0 0;max-width:560px;font-style:italic}
 .noplay{font-size:15px;background:var(--paper);border:1px dashed var(--line);border-radius:8px;padding:10px 12px;margin:6px 0 12px;max-width:560px}
 .xlegend{font-size:13px;color:var(--muted);margin:10px 0 0;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
 .xl{color:inherit;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;cursor:pointer}
@@ -606,3 +610,4 @@ a.xl:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
 @media print{ .songcover iframe{display:none} }
 .vprev-frame{position:absolute;left:0;top:50%;width:325px;height:578px;border:0;z-index:1;pointer-events:none;transform-origin:0 0;transform:scale(.5846) translateY(-50%)}
 @media (max-width:560px){ .vprev-frame{transform:scale(.4615) translateY(-50%)} }
+@media print{.songbd .bdframe{display:none}}

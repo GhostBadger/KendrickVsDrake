@@ -176,8 +176,29 @@ function songCover(s){
     <figcaption><span class="eyebrow">Cover art</span> ${s.cover.note} <span class="covsrc">Shown through Spotify’s official player ${c(s.cover.ref)}.</span></figcaption>
   </figure>`;
 }
+/* One outside breakdown video per song, from the commentator's own channel */
+function songBreakdown(s){
+  const b = s.breakdown; if(!b) return "";
+  const r = REFS[b.ref];
+  const who = r.a.replace(/\.$/,"").replace(/^Markman, R$/,"Rob Markman");
+  const url = r.url + (b.start ? `&t=${b.start}s` : "");
+  return `<section class="songbd" id="bd-${s.id}" data-loc="Songs · ${esc(plain(s.title))} · breakdown video">
+    <p class="eyebrow">Breakdown video</p>
+    <p class="bdlead">${b.lead || "Want someone to walk you through every reference? This video goes line by line."}</p>
+    <div class="spframe bdframe"><button class="vthumb" data-bd="${b.yt}" data-start="${b.start||0}" aria-label="Play breakdown video: ${esc(plain(r.t))}">
+      <img src="https://i.ytimg.com/vi/${b.yt}/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+      <span class="play"><span><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M5 3 L15 9 L5 15 Z"/></svg></span></span></button></div>
+    <p class="spcap"><a href="${url}" target="_blank" rel="noopener">${r.t}</a> · ${esc(who)} (<a class="cite" data-k="${b.ref}"></a>). ${b.note}</p>
+    <p class="bdnote">This is a commentator’s reading of the song, not an official explanation. The site’s own claims are cited to the sources in the References.</p>
+  </section>`;
+}
+function playBreakdown(btn){
+  const box = btn.closest(".bdframe"); if(!box) return;
+  const st = +btn.dataset.start;
+  box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${btn.dataset.bd}?autoplay=1&rel=0${st?`&start=${st}`:""}" title="Breakdown video" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+}
 function playSong(yt, start){
-  const box = $(".spframe", $("#songpanel")); if(!box) return;
+  const box = $(".songplay .spframe", $("#songpanel")); if(!box) return;
   box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&rel=0${start?`&start=${start}`:""}" title="Song player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
 }
 function selectSong(id){
@@ -195,16 +216,19 @@ function selectSong(id){
     <div class="songmeta"><span><b>Released:</b> ${s.date}</span><span><b>First home:</b> ${s.home}</span></div>
     ${songCover(s)}
     ${songPlayer(s)}
-    <div class="btnrow"><a class="btn" href="${s.genius?REFS[s.genius].url:genius}" target="_blank" rel="noopener">Read the lyrics on Genius ↗</a>${s.genius?`<span class="gcite">(<a class="cite" data-k="${s.genius}"></a>)</span>`:""}</div>
+    <div class="btnrow"><a class="btn" href="${s.genius?REFS[s.genius].url:genius}" target="_blank" rel="noopener">Read the lyrics on Genius ↗</a>${s.genius?`<span class="gcite">(<a class="cite" data-k="${s.genius}"></a>)</span>`:""}${s.breakdown?`<a class="btn" href="#bd-${s.id}" data-bdjump>Watch a breakdown video ↓</a>`:""}</div>
     ${chipList(s.answers,"Answers:")}${chipList(s.answeredBy,"Answered by:")}
     <p class="xlegend">Underlined phrases jump to what they refer to: <span class="xl xl-bs">backstory</span> <span class="xl xl-song">another song</span> <span class="xl xl-lg">legal timeline</span> <span class="xl xl-ev">story timeline</span></p>
     <ol class="parts">${s.parts.map((p,i)=>{ const back=[...new Set([...p.back,...inlineBs(p.text)])]; return `<li id="song-${s.id}-${i+1}">
       <span class="plabel">${String(i+1).padStart(2,"0")} · ${p.label}</span>${p.t!=null&&s.play?` <button class="tsbtn" data-t="${p.t}" aria-label="Play from ${mmss(p.t)}">▶ ${mmss(p.t)}</button>`:""}
       <p>${linkify(p.text)}</p>
       ${back.length?`<div class="backchips"><span>Points back to:</span>${back.map(b=>`<button data-bs="${b}">${bsById[b].date} · ${plain(bsById[b].title)}</button>`).join("")}</div>`:""}
-    </li>`; }).join("")}</ol></div>`;
+    </li>`; }).join("")}</ol>
+    ${songBreakdown(s)}</div>`;
   fillCites(panel);
   $$("[data-play]", panel).forEach(b => b.addEventListener("click", () => playSong(b.dataset.play, 0)));
+  $$("[data-bd]", panel).forEach(b => b.addEventListener("click", () => playBreakdown(b)));
+  $$("[data-bdjump]", panel).forEach(a => a.addEventListener("click", e => { e.preventDefault(); const t = $("#bd-"+s.id); history.replaceState(null,"","#bd-"+s.id); t.scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"}); t.classList.remove("flash"); void t.offsetWidth; t.classList.add("flash"); }));
   $$(".tsbtn", panel).forEach(b => b.addEventListener("click", () => { playSong(s.play.yt, +b.dataset.t); $(".songplay",panel).scrollIntoView({behavior:reduced?"auto":"smooth",block:"nearest"}); }));
   $$("[data-go]", panel).forEach(b => b.addEventListener("click", e => { e.preventDefault(); selectSong(b.dataset.go); history.replaceState(null,"","#song-"+b.dataset.go); $("#songgrid").scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"}); }));
   $$("[data-bs]", panel).forEach(b => b.addEventListener("click", e => { e.preventDefault(); focusBackstory(b.dataset.bs); }));
@@ -460,7 +484,7 @@ function route(){
   const h = decodeURIComponent(location.hash.slice(1));
   if(!h || h==="story"){ showView("story"); if(!h) return; window.scrollTo(0,0); return; }
   if(VIEWS.includes(h)){ showView(h); window.scrollTo(0,0); return; }
-  const sm = h.match(/^(song|play|cover)-([a-z0-9]+)/);
+  const sm = h.match(/^(song|play|cover|bd)-([a-z0-9]+)/);
   if(sm){
     const id = sm[2];
     showView("songs"); selectSong(id);
@@ -513,7 +537,7 @@ route();
   const all = JSON.stringify([EVENTS,SONGS,BACKSTORY,LEGAL,CREATOR_PHASES,LOOP]);
   (all.match(/data-k=\\?"([^"\\]+)\\?"/g)||[]).forEach(m=>used.add(m.replace(/.*data-k=\\?"/,"").replace(/\\?"$/,"")));
   CREATOR_PHASES.forEach(p=>p.videos.forEach(v=>v.ref&&used.add(v.ref)));
-  SONGS.forEach(s=>{ if(s.play) used.add(s.play.ref); if(s.genius) used.add(s.genius); if(s.cover) used.add(s.cover.ref); });
+  SONGS.forEach(s=>{ if(s.play) used.add(s.play.ref); if(s.genius) used.add(s.genius); if(s.cover) used.add(s.cover.ref); if(s.breakdown) used.add(s.breakdown.ref); });
   const unused = Object.keys(REFS).filter(k=>!used.has(k));
   if(unused.length) console.warn("Uncited references:", unused.join(", "));
 })();
