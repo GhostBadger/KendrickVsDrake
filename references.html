@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>References · Drake vs. Kendrick, Clipped</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="sitehead">
+  <div class="wrap">
+    <a class="brand" href="index.html#story"><span class="d">Drake</span> vs. <span class="k">Kendrick</span>, Clipped</a>
+    <nav class="tabs" aria-label="Views">
+      <a href="index.html#story">Story</a>
+      <a href="index.html#songs">Song timeline</a>
+      <a href="index.html#legal">Legal timeline</a>
+      <a href="index.html#creators">Creator watch</a>
+      <a href="references.html" aria-current="page">References</a>
+    </nav>
+  </div>
+</header>
+<main>
+  <section class="viewhead">
+    <div class="wrap">
+      <p class="eyebrow">APA 7th edition</p>
+      <h1>References</h1>
+      <p class="lede">Every source on the site, in APA format, with links back to each place it is cited.</p>
+      <p class="method">About the sources: I combined news reports, music-industry analysis, court coverage, platform data, two peer-reviewed articles and creator videos. A few sources, such as Know Your Meme and Dexerto, document internet culture rather than verify facts, so I use them only to show what circulated online. Lyrics appear only as short phrases already quoted in news coverage. Video dates are the upload month shown on YouTube.</p>
+      <div class="refbar">
+        <div class="chips" role="group" aria-label="Filter by type">
+          <button class="chip" data-cat="all" aria-pressed="true">All</button>
+          <button class="chip" data-cat="news" aria-pressed="false" style="--c:var(--ink)">News &amp; analysis</button>
+          <button class="chip" data-cat="research" aria-pressed="false" style="--c:var(--accent)">Research &amp; data</button>
+          <button class="chip" data-cat="academic" aria-pressed="false" style="--c:var(--court)">Peer-reviewed</button>
+          <button class="chip" data-cat="video" aria-pressed="false" style="--c:var(--kendrick)">Videos</button>
+        </div>
+        <label for="q" class="refstats">Search</label>
+        <input id="q" type="search" placeholder="Author, title or site">
+      </div>
+      <p class="refstats" id="stats" aria-live="polite"></p>
+      <ul class="reflist" id="reflist"></ul>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Analysis and design by Georgey Kurien for INDS-1135 TikTok &amp; Popular Culture, Fanshawe College, November 2026.</div></footer>
+<script src="assets/data.js"></script>
+<script src="assets/usage.js"></script>
+<script>
+(function(){
+  const CAT = {news:"News & analysis",research:"Research & data",academic:"Peer-reviewed",video:"Video"};
+  const USE = window.USAGE || {};
+  const list = Object.entries(REFS).sort((a,b)=>a[1].sort.localeCompare(b[1].sort,"en",{sensitivity:"base"}));
+  const el = document.getElementById("reflist");
+  el.innerHTML = list.map(([k,r]) => {
+    const uses = USE[k] || [];
+    const text = (r.apa + " " + r.url + " " + r.a + " " + (r.s||"")).replace(/<[^>]+>/g,"").toLowerCase();
+    return `<li id="r-${k}" data-cat="${r.cat}" data-text="${text.replace(/"/g,"&quot;")}">
+      <div class="cat">${CAT[r.cat]}</div>
+      <div class="apa">${r.apa} <a href="${r.url}" target="_blank" rel="noopener">${r.url}</a></div>
+      <div class="used"><span class="incite">In text: (${r.cite})</span> · <span>Used in ${uses.length} place${uses.length===1?"":"s"}:</span>
+        ${uses.map(u=>`<a href="index.html#${u.id}">${u.label}</a>`).join("")}</div>
+    </li>`;
+  }).join("");
+  const total = Object.values(USE).reduce((n,u)=>n+u.length,0);
+  let cat = "all";
+  function apply(){
+    const q = document.getElementById("q").value.trim().toLowerCase();
+    let shown = 0;
+    [...el.children].forEach(li => { const ok = (cat==="all"||li.dataset.cat===cat) && (!q || li.dataset.text.includes(q)); li.hidden = !ok; if(ok) shown++; });
+    document.getElementById("stats").textContent = `Showing ${shown} of ${list.length} sources · ${total} citations across the site`;
+  }
+  document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+    cat = b.dataset.cat; document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", x===b)); apply();
+  }));
+  document.getElementById("q").addEventListener("input", apply);
+  apply();
+  if(location.hash){ const t = document.getElementById(location.hash.slice(1)); if(t) t.scrollIntoView({block:"center"}); }
+})();
+</script>
+</body>
+</html>
