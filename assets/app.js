@@ -169,11 +169,11 @@ function songPlayer(s){
 }
 /* Official cover art, shown through Spotify's own player rather than copied onto the site */
 function songCover(s){
-  if(s.nocover) return `<div class="songcover none"><p class="eyebrow">Cover art</p><p>${s.nocover}</p></div>`;
+  if(s.nocover) return `<div class="songcover none"><p class="eyebrow">Cover art</p><p>${s.nocover}${artLink(s)}</p></div>`;
   if(!s.cover) return "";
   return `<figure class="songcover" id="cover-${s.id}" data-loc="Songs · ${esc(plain(s.title))} · cover art">
     <iframe src="https://open.spotify.com/embed/track/${s.cover.sp}?utm_source=generator" title="${esc(plain(s.title))}: cover art and preview on Spotify" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
-    <figcaption><span class="eyebrow">Cover art</span> ${s.cover.note} <span class="covsrc">Shown through Spotify’s official player ${c(s.cover.ref)}.</span></figcaption>
+    <figcaption><span class="eyebrow">Cover art</span> ${s.cover.note} <span class="covsrc">Shown through Spotify’s official player ${c(s.cover.ref)}.</span>${artLink(s)}</figcaption>
   </figure>`;
 }
 /* One outside breakdown video per song, from the commentator's own channel */
@@ -191,6 +191,41 @@ function songBreakdown(s){
     <p class="spcap"><a href="${url}" target="_blank" rel="noopener">${r.t}</a> · ${esc(who)} (<a class="cite" data-k="${b.ref}"></a>). ${b.note}</p>
     <p class="bdnote">This is a commentator’s reading of the song, not an official explanation. The site’s own claims are cited to the sources in the References.</p>
   </section>`;
+}
+/* "Cover art, decoded": one card per diss cover, in release order */
+const artIds = new Set(COVER_ART.map(a => a.id));
+const artLink = s => artIds.has(s.id) ? ` <a class="artjump" href="#art-${s.id}">Read the cover analysis ↓</a>` : "";
+function renderCoverArt(){
+  const box = $("#artlist"); if(!box) return;
+  box.innerHTML = COVER_ART.map(a => {
+    const s = songById[a.id], t = plain(s.title), sh = a.show;
+    let pic;
+    if(sh.sp) pic = `<iframe class="artsp" src="https://open.spotify.com/embed/track/${sh.sp}?utm_source=generator" title="${esc(t)}: cover art on Spotify" loading="lazy" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+        <p class="artsrc">${sh.cap ? sh.cap+" " : ""}Shown through Spotify’s official player ${c(sh.ref)}.</p>`;
+    else if(sh.ig) pic = `<iframe class="artig" src="https://www.instagram.com/reel/${sh.ig}/embed" title="${esc(t)}: Kendrick Lamar’s original Instagram post" loading="lazy" scrolling="no" allow="encrypted-media; fullscreen"></iframe>
+        <p class="artsrc">Kendrick’s original Instagram post, shown through Instagram’s own embed ${c(sh.ref)}.</p>`;
+    else pic = `<div class="artnone"><p>${sh.none}</p></div>`;
+    const vid = a.video ? `<div class="spframe bdframe artvid"><button class="vthumb" data-bd="${a.video.yt}" data-start="0" aria-label="Play the ${esc(t)} music video">
+        <img src="https://i.ytimg.com/vi/${a.video.yt}/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+        <span class="play"><span><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M5 3 L15 9 L5 15 Z"/></svg></span></span></button></div>
+        <p class="artsrc">${a.video.label} Official video ${c(a.video.ref)}.</p>` : "";
+    return `<article class="artcard" id="art-${a.id}" data-loc="Songs · Cover art, decoded · ${esc(t)}" style="--c:${SIDECOL[s.artist]}">
+      <div class="artpic">${pic}</div>
+      <div class="artbody">
+        <p class="artmeta"><span class="badge">${s.artist==="drake"?"Drake":"Kendrick"}</span> <time class="mono">${s.date}</time></p>
+        <h3>${s.title}</h3>
+        <p><b>What it shows.</b> ${a.shows}</p>
+        <p><b>What it’s aimed at.</b> ${a.aim}</p>
+        ${a.van ? `<div class="artvan"><p class="eyebrow">The crushed van</p><p>${a.van}</p>${vid}</div>` : ""}
+        ${a.next ? `<p><b>What happened next.</b> ${a.next}</p>` : ""}
+        <div class="sf">${PHONE}<p><b>Short-form angle.</b> ${a.sf}</p></div>
+        <p class="artback"><a href="#song-${a.id}" data-go="${a.id}">Open “${esc(t)}” in the Song timeline ↑</a></p>
+      </div>
+    </article>`;
+  }).join("");
+  fillCites(box);
+  $$("[data-bd]", box).forEach(b => b.addEventListener("click", () => playBreakdown(b)));
+  $$("[data-go]", box).forEach(b => b.addEventListener("click", e => { e.preventDefault(); selectSong(b.dataset.go); history.replaceState(null,"","#song-"+b.dataset.go); $("#songgrid").scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"}); }));
 }
 function playBreakdown(btn){
   const box = btn.closest(".bdframe"); if(!box) return;
@@ -508,7 +543,7 @@ function route(){
 
 /* =================== INIT =================== */
 renderTimeline(); renderDayChart(); renderParticipability(); renderLoop();
-renderBackstory(); renderDrop(); selectSong(currentSong);
+renderBackstory(); renderCoverArt(); renderDrop(); selectSong(currentSong);
 renderLegal(); renderCreators();
 fillCites(); applyFilter();
 
@@ -538,6 +573,7 @@ route();
   (all.match(/data-k=\\?"([^"\\]+)\\?"/g)||[]).forEach(m=>used.add(m.replace(/.*data-k=\\?"/,"").replace(/\\?"$/,"")));
   CREATOR_PHASES.forEach(p=>p.videos.forEach(v=>v.ref&&used.add(v.ref)));
   SONGS.forEach(s=>{ if(s.play) used.add(s.play.ref); if(s.genius) used.add(s.genius); if(s.cover) used.add(s.cover.ref); if(s.breakdown) used.add(s.breakdown.ref); });
+  COVER_ART.forEach(a=>{ if(a.show.ref) used.add(a.show.ref); if(a.video) used.add(a.video.ref); });
   const unused = Object.keys(REFS).filter(k=>!used.has(k));
   if(unused.length) console.warn("Uncited references:", unused.join(", "));
 })();

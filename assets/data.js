@@ -167,6 +167,18 @@ const REFS = {
   bdHP6:{a:"Pearl Fountain",y:"2024",md:", May 6",t:"Drake’s “The Heart Part 6” breakdown: Every Kendrick diss explained",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=WQqqBQSRVpw"},
   bdNotLikeUs:{a:"Pearl Fountain",y:"2024",md:", May 7",t:"Every shot Kendrick took at Drake on “Not Like Us” explained",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=3asDDQ35Wyw"},
   bdFamily:{a:"Diverse Mentality",y:"2024",md:", May 24",t:"Drake’s ‘Family Matters’ - Bar for bar breakdown",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=SCDbXvbZM7Q"},
+  /* ---- cover-art analysis (Song timeline, "Cover art, decoded") ---- */
+  igSix16:{a:"Lamar, K. [@kendricklamar]",n:"Lamar",y:"2024",md:", May 3",t:"6:16 in LA",kind:"insta",cat:"music",url:"https://www.instagram.com/reel/C6gdClArPXc/"},
+  kaplan2024:{a:"Kaplan, I.",n:"Kaplan",y:"2024",md:", May 3",t:"Kendrick Lamar shares second Drake diss track in one week with Jack Antonoff-produced ‘6:16 in LA’",s:"People (republished by Yahoo News)",kind:"periodical",cat:"news",url:"https://sg.news.yahoo.com/kendrick-lamar-shares-second-drake-192500096.html"},
+  cowen2024b:{a:"Cowen, T. W.",n:"Cowen",y:"2024",md:", May 3",t:"Kendrick Lamar drops second Drake diss “6:16 in LA”: ‘Can’t Toosie Slide up outta this one’",s:"Complex",kind:"periodical",cat:"news",url:"https://www.complex.com/music/a/tracewilliamcowen/kendrick-lamar-drake-diss-616-in-la"},
+  williams2024:{a:"Williams, A.",n:"Williams",y:"2024",md:", May 3",t:"What do the gloves on Kendrick Lamar’s “6:16 in LA” artwork mean?",s:"Uproxx",kind:"periodical",cat:"news",url:"https://uproxx.com/music/kendrick-lamars-616-in-la-gloves-explained"},
+  centeno2024:{a:"Centeno, T. M.",n:"Centeno",y:"2024",md:", May 4",t:"Kendrick Lamar claims Drake has a second child on ‘Meet the Grahams’",s:"iHeartRadio",kind:"periodical",cat:"news",url:"https://www.iheart.com/content/2024-05-04-kendrick-lamar-claims-drake-has-a-second-child-on-meet-the-grahams/"},
+  nevares2024:{a:"Bras Nevares, G.",n:"Bras Nevares",y:"2024",md:", May 13",t:"What’s going on with Kendrick Lamar, Drake &amp; the “Meet the Grahams” cover art?",s:"HotNewHipHop",kind:"periodical",cat:"news",url:"https://www.hotnewhiphop.com/801323-meet-grahams-cover-explained-ebonyprince-kendrick-lamar-drake-beef-hip-hop-news"},
+  coleHnhh:{a:"Cole, A.",n:"Cole",y:"2024",md:", May 13",t:"Drake vs. Kendrick Lamar: DJ Akademiks alleges Drake lied about Dave Free &amp; Whitney Alford affair",s:"HotNewHipHop",kind:"periodical",cat:"news",url:"https://www.hotnewhiphop.com/801108-drake-kendrick-lamar-dj-akademiks-lied-dave-free-whitney-alford-hip-hop-news"},
+  deville2024:{a:"DeVille, C.",n:"DeVille",y:"2024",md:", May 3",t:"Drake unveils latest Kendrick Lamar diss track “Family Matters”",s:"Stereogum",kind:"periodical",cat:"news",url:"https://stereogum.com/2262209/drake-unveils-latest-kendrick-lamar-diss-track-family-matters/music"},
+  songfactsFM:{a:"Songfacts",y:"n.d.",t:"Family Matters by Drake",kind:"web",cat:"news",retrieved:"November 23, 2026",url:"https://www.songfacts.com/facts/drake/family-matters"},
+  sportskeedaEggs:{a:"Sportskeeda",y:"n.d.",t:"Kendrick Lamar vs Drake rap beef: Exploring all visual easter eggs so far",kind:"web",cat:"news",retrieved:"November 23, 2026",url:"https://sportskeeda.com/us/music/kendrick-lamar-vs-drake-rap-beef-exploring-visual-easter-eggs-far"},
+  hellerbach2024:{a:"Hellerbach, M.",n:"Hellerbach",y:"2024",md:", July 5",t:"Decoding Kendrick Lamar’s “Not Like Us” video",s:"Complex",kind:"periodical",cat:"news",url:"https://www.complex.com/music/a/complex/kendrick-lamar-not-like-us-video-decoding-hidden-meanings"},
   /* ---- Genius lyrics pages (links sent by George; the lyrics are not reproduced on this site) ---- */
   gNotLikeUs:{a:"Genius",y:"n.d.",t:"Kendrick Lamar – Not Like Us lyrics",kind:"web",cat:"music",retrieved:"November 23, 2026",url:"https://genius.com/Kendrick-lamar-not-like-us-lyrics"},
   /* ---- AI tool (APA 7 format for generative AI; prompts and responses in appendix.html) ---- */
@@ -346,7 +358,7 @@ const SONGS = [
     {label:"AI and ghostwriters",text:`He mocks [[song:taylormade|the AI Tupac verse]] and revives [[bs:meek|the old claim that Drake relies on other writers]] ${c("yahoo2024","npr2024c")}.`,back:["estate","meek"]},
     {label:"Identity and fatherhood",text:`He questions Drake’s authenticity, racial identity and [[bs:adonis|parenting]] ${c("ktvu2024")}.`,back:["adonis"]}
    ]},
-  {id:"six16",breakdown:{yt:"I35DRDAET7s",ref:"bdSix16",note:`Posted the night after the Instagram release.`},nocover:`No single cover. The song was released only as an Instagram post.`,noplay:`There is no official upload to play here. Kendrick released it only as an Instagram post, not on YouTube or streaming services ${c("cirisano2024")}.`,artist:"kendrick",by:"Kendrick Lamar",title:"6:16 in LA",d:"2024-05-03",date:"May 3, 2024",home:"Instagram only",
+  {id:"six16",breakdown:{yt:"I35DRDAET7s",ref:"bdSix16",note:`Posted the night after the Instagram release.`},nocover:`No single cover. The song was released only as an Instagram Reel, and the Reel’s image, a black Maybach glove, works as its cover.`,noplay:`There is no official upload to play here. Kendrick released it only as an Instagram post, not on YouTube or streaming services ${c("cirisano2024")}. Kendrick’s original post plays in the cover analysis below.`,artist:"kendrick",by:"Kendrick Lamar",title:"6:16 in LA",d:"2024-05-03",date:"May 3, 2024",home:"Instagram only",
    answers:["pushups"],answeredBy:["familymatters"],
    parts:[
     {label:"The title",text:`A timestamp title, borrowing the format of Drake’s own series of timestamped songs ${c("stereogumHP6")}.`,back:[]},
@@ -557,7 +569,7 @@ const REF_SUMMARIES = {
   npr2024c:`NPR’s review of “Euphoria,” calling it raw and emotional. It notes the title points to Drake’s role on HBO’s <i>Euphoria</i> and contrasts Kendrick’s real voice with Drake’s use of AI.`,
   npr2025:`NPR’s report on Drake’s 2025 federal lawsuit. The complaint describes three attempted home invasions including the guard’s shooting, the cover art, online hate and a flyer calling him a predator, and claims the song invites vigilante justice.`,
   ocho2026:`Complex’s chart report on <i>Iceman</i> debuting at No. 1 with 463,000 units, and on Drake becoming the first artist to hold the top three Billboard 200 spots at once.`,
-  phillips2024:`A HotNewHipHop breakdown of “Family Matters”: the “Buried Alive Interlude” teaser, the accusations about Kendrick’s relationship and Dave Free, and the shots at Metro Boomin, The Weeknd, Rick Ross and A$AP Rocky.`,
+  phillips2024:`A HotNewHipHop breakdown of “Family Matters”: the “Buried Alive Interlude” teaser, the video’s crushed van from Kendrick’s <i>good kid, m.A.A.d city</i> cover, the accusations about Kendrick’s relationship and Dave Free, and the shots at Metro Boomin, The Weeknd, Rick Ross and A$AP Rocky.`,
   rollingstone2024:`A Rolling Stone explainer on why so many artists, including Future, Metro Boomin, Rick Ross and The Weeknd, turned on Drake in spring 2024, with the history behind each rift.`,
   rollingstone2025:`Rolling Stone’s report on Drake filing his notice of appeal after the October 2025 dismissal. It recaps his claims and the judge’s reasoning, including her reference to “Taylor Made Freestyle.”`,
   rollingstone2026:`Rolling Stone’s report on UMG’s 83-page appeals brief, which calls Drake’s appeal hypocritical and argues the lyrics are classic opinion that Drake himself provoked.`,
@@ -668,10 +680,62 @@ const REF_SUMMARIES = {
   bdHP6:`Pearl Fountain’s explainer of “The Heart Part 6,” posted early the morning after the song came out. It is the breakdown video for that song on the Song timeline.`,
   bdNotLikeUs:`Pearl Fountain’s line-by-line explainer of “Not Like Us,” posted three days after the song came out. It is the breakdown video for that song on the Song timeline.`,
   bdFamily:`A long bar-for-bar breakdown of “Family Matters” by the Diverse Mentality channel, first streamed three weeks after the song came out. It is the breakdown video for that song on the Song timeline.`,
+  igSix16:`Kendrick’s original Instagram Reel for “6:16 in LA,” the only official home of the song. Its image, a black Maybach glove, served as the song’s cover. It is embedded in “Cover art, decoded” on the Song timeline.`,
+  kaplan2024:`People’s release-day report on “6:16 in LA,” describing the Reel’s single black Maybach glove and its caption, and reading the glove as a nod to Rick Ross’s Maybach Music Group.`,
+  cowen2024b:`Complex’s release-day post on “6:16 in LA,” which reads the glove image as a sign that “the gloves are off.”`,
+  williams2024:`Uproxx on the “6:16 in LA” artwork: a driving glove with the Maybach Music Group logo, which it ties to Rick Ross, a former Drake collaborator who had turned against him.`,
+  centeno2024:`iHeartRadio’s report on “Meet the Grahams,” noting that its cover looked like a wider version of the “6:16 in LA” glove photo and listing the prescriptions in Drake’s name and the jewelry receipt it showed.`,
+  nevares2024:`HotNewHipHop on the claims around the original “Meet the Grahams” cover: the items shown, DJ Akademiks’s suggestion they were stolen, and the X account EbonyPrince2k24’s claims about where they came from. It stresses that none of the claims were verified.`,
+  coleHnhh:`HotNewHipHop on DJ Akademiks saying that Drake’s claim about Dave Free and Whitney Alford was completely false, a claim the article notes Drake repeated on the cover of “The Heart Part 6.”`,
+  deville2024:`Stereogum’s release-night post on “Family Matters,” noting that the video’s first section shows the van from the <i>good kid, m.A.A.d city</i> artwork being crushed.`,
+  songfactsFM:`A Songfacts entry on “Family Matters”: the title borrows from the 1990s sitcom, and the video crushes a van like the one on the deluxe cover of Kendrick’s <i>good kid, m.A.A.d city</i>.`,
+  sportskeedaEggs:`A Sportskeeda round-up of visual Easter eggs in the feud: the sitcom look of the “Family Matters” cover, the crushed van in its video, the Maybach glove and the items on the original “Meet the Grahams” cover.`,
+  hellerbach2024:`Complex’s breakdown of the “Not Like Us” video, which Dave Free co-directed and appears in. It reads the family scene as Kendrick’s answer to the claims on “Family Matters.”`,
   anthropic2026:`The AI model used to find and check sources, draft the site’s text and code, and publish it. The full prompts and responses are in the Appendix, which also explains which parts are AI-drafted.`,
   vDeema:`An educational explainer from Deema’s Class on the dismissal and the “floodgates” argument, the worry that allowing this case would invite many more like it.`
 };
 for(const [k,s] of Object.entries(REF_SUMMARIES)) if(REFS[k]) REFS[k].summary = s;
+
+/* ---------------------------------------------------------------------
+   Cover art, decoded (Song timeline). Covers are shown through each
+   platform's own player or post, never copied onto the site.
+   --------------------------------------------------------------------- */
+const COVER_ART = [
+  {id:"pushups",show:{sp:"3eh51r6rFWAlGQRlHx9QnQ",ref:"spPushUps"},
+   shows:`A shoe-size tag for a size 7 sneaker.`,
+   aim:`Kendrick’s height. The cover doubles down on the song’s jokes about his shoe size ${c("rossignol2024","fitzgerald2024")}.`,
+   sf:`A joke you get in one glance, with no lyrics needed. It works as a screenshot even for people who never played the song.`},
+  {id:"euphoria",show:{sp:"77DRzu7ERs0TX3roZcre7Q",ref:"spEuphoria"},
+   shows:`A screenshot of the dictionary definition of “euphoria.”`,
+   aim:`Two targets at once. Drake is an executive producer of HBO’s <i>Euphoria</i>, and the definition, a feeling of intense excitement, answers Drake’s claim on “Taylor Made Freestyle” that Kendrick wasn’t enthused about the battle ${c("fitzgerald2024")}.`,
+   sf:`A plain dictionary screenshot looks more like a meme than album art. Fans had to work out the joke, and working it out is what kept them posting.`},
+  {id:"six16",show:{ig:"C6gdClArPXc",ref:"igSix16"},
+   shows:`A black leather driving glove with the Maybach logo, posted as an Instagram Reel with the caption “6:16 in LA” ${c("igSix16","kaplan2024")}.`,
+   aim:`The press read it two ways. The gloves are off ${c("cowen2024b")}. And the Maybach logo points to Rick Ross’s label, Maybach Music Group, since Ross had already turned on Drake ${c("williams2024")}.`,
+   next:`The glove was a teaser. That night, the “Meet the Grahams” cover turned out to be a wider shot of the same photo ${c("centeno2024")}.`,
+   sf:`The image paid off twice: once as a mystery, and again when the next cover explained it. Each payoff gave fans a reason to post again.`},
+  {id:"familymatters",show:{sp:"1wFFFzJ5EsKbBWZriAcubN",ref:"spFamily"},
+   shows:`The title in big yellow letters over a city skyline lined with palm trees. The title and lettering borrow from the 1990s sitcom <i>Family Matters</i> ${c("songfactsFM","sportskeedaEggs")}.`,
+   aim:`Kendrick’s family. Sportskeeda read the sitcom look as saying Kendrick has a lot of family drama ${c("sportskeedaEggs")}, which is what the song is about.`,
+   van:`The van is in the music video, not on the cover. In the video’s first section, a minivan like the one on the cover of Kendrick’s 2012 album <i>good kid, m.A.A.d city</i>, his mother’s van, is towed through Toronto and crushed in a junkyard ${c("deville2024","phillips2024","songfactsFM")}. No source quotes Drake on what it means. HotNewHipHop discusses it alongside the song’s attacks on Kendrick’s family ${c("phillips2024")}. The likeliest reading: that album is Kendrick’s story of growing up in Compton, and crushing the van in Drake’s hometown is a way of wrecking the story Kendrick tells about himself.`,
+   video:{yt:"ZkXG3ZrXlbc",ref:"sFamily",label:"Watch the video. The van is in the first section."},
+   sf:`A crushed car is a five-second clip that works with the sound off. Fans who knew the album cover got it instantly, and everyone else learned it from explainer posts.`},
+  {id:"grahams",show:{sp:"4S8PxReB1UiDR2F5x1lyIR",ref:"spGrahams",cap:`The streaming cover is plain black. The original is described here, not shown, because it displays what are claimed to be someone’s prescription labels.`},
+   shows:`The original cover, posted with the song on YouTube, was a pile of items said to belong to Drake: prescription bottles in his name, a box of the weight-loss drug Ozempic, a receipt for a large jewelry purchase and the Maybach glove from “6:16 in LA” ${c("fitzgerald2024","centeno2024")}.`,
+   aim:`It backs up the song’s picture of Drake’s private life with what look like personal belongings.`,
+   next:`Where the items came from was never proven. DJ Akademiks suggested they were stolen. An anonymous X account, EbonyPrince2k24, said Drake had thrown them away, posted footage it said showed this, and claimed it had told only Kendrick. HotNewHipHop stressed that none of it was verified ${c("nevares2024")}. Kendrick then swapped in a plain black cover for the streaming release, and fans argued about why ${c("blake2024")}.`,
+   sf:`The cover worked like a leaked evidence photo. People zoomed in on every label and receipt and posted the crops, and an anonymous account built its own following around it ${c("nevares2024")}.`},
+  {id:"notlikeus",show:{sp:"6AI3ezQ4o3HUoP6Dhudph3",ref:"spNotLikeUs"},
+   shows:`An aerial photo of Drake’s Toronto home, covered in the map pins used on sex-offender registry maps ${c("fader2025")}.`,
+   aim:`It turns the song’s central accusation into a picture of a real address. The accusation is unproven, and Drake denies it ${c("billboard2024")}.`,
+   next:`Drake’s 2025 lawsuit pointed to the cover as a safety threat, alongside attempted break-ins at the house ${c("fader2025","npr2025")}. See the <a href="#lg-lawsuit">legal timeline</a>.`,
+   sf:`This is where a feed image crossed into real life: the picture that circulated as a meme was later quoted in a legal complaint.`},
+  {id:"hp6",show:{none:`Not shown here. The cover is built from a family’s Instagram post about their children, so it is described instead. Drake’s official upload shows it ${c("sHP6")}.`},
+   shows:`A screenshot of an Instagram comment, a black heart and a hand-heart, that Kendrick’s creative partner Dave Free left under a photo Kendrick’s fiancée, Whitney Alford, posted with their children ${c("billboard2024")}.`,
+   aim:`It backs up Drake’s unproven claim on “Family Matters” that Free fathered one of Kendrick’s children ${c("billboard2024")}.`,
+   next:`DJ Akademiks later said the claim was completely false ${c("coleHnhh")}. Kendrick answered on screen: Free co-directed the “Not Like Us” video and appears in it, and the video includes a family scene with Kendrick, his partner and their children ${c("hellerbach2024")}.`,
+   sf:`A screenshot of a comment only proves that someone typed two emojis, but on a feed it looks like a receipt.`}
+];
 
 /* ---------------------------------------------------------------------
    Reference formatting (shared by both pages)
@@ -699,6 +763,7 @@ for(const [k,s] of Object.entries(REF_SUMMARIES)) if(REFS[k]) REFS[k].summary = 
     else if(r.kind==="video") body = `<i>${r.t}</i> [Video]. YouTube.`;
     else if(r.kind==="audio") body = `<i>${r.t}</i> [Audio]. SoundCloud.`;
     else if(r.kind==="song") body = (r.album ? `${r.t} [${r.desc||"Song"}]. On <i>${r.album}</i>.` : `<i>${r.t}</i> [${r.desc||"Song"}].`) + ` ${r.label}.`;
+    else if(r.kind==="insta") body = `<i>${r.t}</i> [Video]. Instagram.`;
     else if(r.kind==="tiktok") body = `${r.t.startsWith("[") ? r.t : `<i>${r.t}</i>`} [Video]. TikTok.`;
     else if(r.kind==="ai") body = `<i>${r.t}</i> (${r.ver}) [${r.desc}].`;
     else if(r.kind==="periodical") body = `${end(r.t)} <i>${r.s}</i>.`;
