@@ -604,3 +604,5 @@ a.xl:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
 .songcover.none p{margin:0}
 .songcover.none .eyebrow{margin:0 0 4px}
 @media print{ .songcover iframe{display:none} }
+.vprev-frame{position:absolute;left:0;top:50%;width:325px;height:578px;border:0;z-index:1;pointer-events:none;transform-origin:0 0;transform:scale(.5846) translateY(-50%)}
+@media (max-width:560px){ .vprev-frame{transform:scale(.4615) translateY(-50%)} }

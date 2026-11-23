@@ -320,9 +320,11 @@ function renderCreators(){
       const who = r ? plain(r.a).replace(/\.$/,"") : (v.by||"");
       const kind = v.platform || "youtube";
       const thumb = kind==="youtube" ? `https://i.ytimg.com/vi/${v.id}/mqdefault.jpg` : "";
-      const oembed = kind==="tiktok" ? `https://www.tiktok.com/oembed?url=${encodeURIComponent(v.url)}`
-                   : kind==="soundcloud" && r ? `https://soundcloud.com/oembed?format=json&url=${encodeURIComponent(r.url)}` : "";
-      return {id:`v-${v.ref||p.id+"-"+(j+1)}`, t, who, kind, thumb, oembed, type:plain(v.type || (kind==="tiktok"?"TikTok":"")), html:videoCard(v)};
+      // SoundCloud's oEmbed service allows other sites to ask for a track's artwork; TikTok's does not,
+      // so TikTok previews show the platform's own embed, shrunk to fit the card and not clickable.
+      const oembed = kind==="soundcloud" && r ? `https://soundcloud.com/oembed?format=json&url=${encodeURIComponent(r.url)}` : "";
+      const mini = kind==="tiktok" ? `<iframe class="vprev-frame" src="https://www.tiktok.com/embed/v2/${esc(v.id)}" loading="lazy" tabindex="-1" aria-hidden="true" title=""></iframe>` : "";
+      return {id:`v-${v.ref||p.id+"-"+(j+1)}`, t, who, kind, thumb, oembed, mini, type:plain(v.type || (kind==="tiktok"?"TikTok":"")), html:videoCard(v)};
     });
     return `<section class="cwphase" id="${p.id}" data-loc="Creators · ${esc(p.title)}">
       <p class="eyebrow">${String(i+1).padStart(2,"0")} · ${p.when}</p>
@@ -330,7 +332,7 @@ function renderCreators(){
       <div class="vcar" data-i="0">
         <div class="vcar-strip" role="tablist" aria-label="Clips in “${esc(plain(p.title))}”">${slides.map((s,j) =>
           `<button type="button" role="tab" class="vprev" id="${s.id}-tab" aria-controls="${s.id}" aria-selected="${j===0}" tabindex="${j===0?0:-1}">
-            <span class="vprev-img ${s.kind}"${s.oembed?` data-oembed="${esc(s.oembed)}"`:""}>${s.thumb?`<img src="${s.thumb}" alt="" loading="lazy" onerror="this.remove()">`:""}
+            <span class="vprev-img ${s.kind}"${s.oembed?` data-oembed="${esc(s.oembed)}"`:""}>${s.thumb?`<img src="${s.thumb}" alt="" loading="lazy" onerror="this.remove()">`:""}${s.mini}
               <span class="vprev-ph" aria-hidden="true">${s.kind==="tiktok"?PHONE:s.kind==="soundcloud"?WAVE:""}<b>${s.kind==="tiktok"?"TikTok":s.kind==="soundcloud"?"SoundCloud":"YouTube"}</b><small>${esc(s.who)}</small></span>
               <span class="vprev-n">${j+1}</span></span>
             <span class="vprev-type">${esc(s.type)}</span>
@@ -368,9 +370,8 @@ function renderCreators(){
     });
   });
 }
-/* TikTok and SoundCloud previews: ask each platform's public oEmbed service for the
-   clip's thumbnail the first time Creator watch opens. If that fails, the labelled
-   placeholder tile stays. */
+/* SoundCloud previews: ask SoundCloud's public oEmbed service for the track artwork the
+   first time Creator watch opens. If that fails, the labelled placeholder tile stays. */
 let previewsLoaded = false;
 function loadPreviews(){
   if(previewsLoaded) return; previewsLoaded = true;
