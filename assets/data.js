@@ -1,5 +1,5 @@
 /* =====================================================================
-   Drake vs. Kendrick, Clipped — site data
+   Kendrick vs. Drake, Clipped — site data
    Everything the pages show lives here: references, timelines, songs,
    legal events and creator videos. Edit text here, not in app.js.
    Citation helper: c("key1","key2") -> "(Author, 2024; Author, 2025)"
@@ -107,6 +107,15 @@ const REFS = {
   vABC7:{a:"ABC7",y:"2025",md:", October",t:"Drake’s ‘Not Like Us’ defamation case dismissed by federal judge",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=KUPG_8tGPdk"},
   vMcCune:{a:"McCune Law Group",y:"2025",md:", October",t:"Drake’s defamation lawsuit dismissed — here’s why (w/ attorney Joe Richardson)",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=foAqkthqbZE"},
   vDeema:{a:"Deema’s Class",y:"2025",md:", December",t:"Results of the Drake vs. UMG lawsuit &amp; the floodgates argument",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=xDCzl8fydv4"},
+  /* ---- official song uploads (the players on the Song timeline) ---- */
+  sFps:{a:"DrakeVEVO",y:"2023",md:", October",t:"Drake - First Person Shooter (Audio) ft. J. Cole",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=sRs2o36a1Us"},
+  sLikeThat:{a:"FutureVEVO",y:"2024",md:", March",t:"Future, Metro Boomin, Kendrick Lamar - Like That (Official Audio)",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=N9bKBAA22Go"},
+  sPushUps:{a:"Drake - Topic",y:"2024",md:", April",t:"Push Ups",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=HKH9p19PRLA"},
+  sEuphoria:{a:"Kendrick Lamar - Topic",y:"2024",t:"euphoria",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=fAqa1ozCuj8"},
+  sFamily:{a:"Drake",y:"2024",md:", May",t:"DRAKE - FAMILY MATTERS",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=ZkXG3ZrXlbc"},
+  sGrahams:{a:"Kendrick Lamar - Topic",y:"2024",md:", May",t:"meet the grahams",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=J_tchksaJCM"},
+  sNotLikeUs:{a:"Kendrick Lamar",y:"2024",md:", May 4",t:"Not Like Us",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=T6eK-2OQtew"},
+  sHP6:{a:"Drake",y:"2024",md:", May",t:"THE HEART PART 6 - DRAKE",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=HJeY-FXidDQ"},
   /* ---- AI tool (APA 7 format for generative AI; prompts and responses in appendix.html) ---- */
   anthropic2026:{a:"Anthropic",y:"2026",t:"Claude",ver:"Opus 5.5 version",desc:"Large language model",kind:"ai",cat:"ai",url:"https://claude.ai"}
 };
@@ -238,79 +247,79 @@ const BACKSTORY = [
 ];
 
 const SONGS = [
-  {id:"fps",artist:"drake",by:"Drake feat. J. Cole",title:"First Person Shooter",d:"2023-10-06",date:"Oct 2023",home:"Album track (streaming)",prologue:true,
+  {id:"fps",play:{yt:"sRs2o36a1Us",ref:"sFps"},artist:"drake",by:"Drake feat. J. Cole",title:"First Person Shooter",d:"2023-10-06",date:"Oct 2023",home:"Album track (streaming)",prologue:true,
    answers:[],answeredBy:["likethat"],
    parts:[
-    {label:"J. Cole’s verse",text:`Cole asks who the best rapper alive is, naming himself, Drake and Kendrick, and settles on the three of them as a “big three” ${c("ktvu2024")}.`,back:["fps-bs"]},
-    {label:"Why it mattered",text:`Coverage later described the line as the accidental spark. It turned a decade of quiet rivalry into a public ranking that invited a reply ${c("ktvu2024","thegrio2024")}.`,back:["control"]}
+    {label:"J. Cole’s verse",text:`Cole asks who the best rapper alive is, naming himself, Drake and Kendrick, and settles on the three of them as a [[bs:fps-bs|“big three”]] ${c("ktvu2024")}.`,back:["fps-bs"]},
+    {label:"Why it mattered",text:`Coverage later described the line as the accidental spark. It turned [[bs:control|a decade of quiet rivalry]] into a public ranking that invited a reply ${c("ktvu2024","thegrio2024")}.`,back:["control"]}
    ]},
-  {id:"likethat",artist:"kendrick",by:"Future, Metro Boomin &amp; Kendrick Lamar",title:"Like That",d:"2024-03-22",date:"Mar 22, 2024",home:"Album track (streaming)",
+  {id:"likethat",play:{yt:"N9bKBAA22Go",ref:"sLikeThat"},artist:"kendrick",by:"Future, Metro Boomin &amp; Kendrick Lamar",title:"Like That",d:"2024-03-22",date:"Mar 22, 2024",home:"Album track (streaming)",
    answers:["fps"],answeredBy:["pushups","taylormade"],
    parts:[
-    {label:"Kendrick’s verse",text:`Kendrick rejects the big-three idea outright and claims the top spot for himself alone ${c("ktvu2024")}.`,back:["fps-bs","control"]},
-    {label:"Who else was on it",text:`The album it came from was part of a wider turn against Drake by Future, Metro Boomin and their collaborators ${c("rollingstone2024")}.`,back:["wdty"]},
+    {label:"Kendrick’s verse",text:`Kendrick rejects [[song:fps|the big-three idea]] outright and claims the top spot for himself alone ${c("ktvu2024")}.`,back:["fps-bs","control"]},
+    {label:"Who else was on it",text:`The album it came from was part of [[bs:wdty|a wider turn against Drake]] by Future, Metro Boomin and their collaborators ${c("rollingstone2024")}.`,back:["wdty"]},
     {label:"Result",text:`The song debuted at No. 1 on the Billboard Hot 100 ${c("stereogum2024")}.`,back:[]}
    ]},
-  {id:"pushups",artist:"drake",by:"Drake",title:"Push Ups",d:"2024-04-19",date:"Apr 13 leak · Apr 19 release",home:"Leaked online, then streaming",
+  {id:"pushups",play:{yt:"HKH9p19PRLA",ref:"sPushUps"},artist:"drake",by:"Drake",title:"Push Ups",d:"2024-04-19",date:"Apr 13 leak · Apr 19 release",home:"Leaked online, then streaming",
    answers:["likethat"],answeredBy:["euphoria"],
    parts:[
     {label:"Title and hook",text:`The title mocks Kendrick’s Instagram workout clips ${c("cbc2024b")}, and the hook claims Kendrick had to hand half his earnings to his old label, Top Dawg Entertainment ${c("uproxx2024b")}.`,back:[]},
-    {label:"The pop features",text:`Drake says Kendrick was sent to write verses for Maroon 5 and Taylor Swift’s fans, casting his pop features as label orders ${c("songfacts")}.`,back:["bad-blood"]},
-    {label:"Everyone else",text:`Drake also hits Future, Metro Boomin, The Weeknd and Rick Ross for joining the pile-on ${c("stereogumLeak")}.`,back:["wdty"]}
+    {label:"The pop features",text:`Drake says Kendrick was sent to write verses for [[bs:bad-blood|Maroon 5 and Taylor Swift’s fans]], casting his pop features as label orders ${c("songfacts")}.`,back:["bad-blood"]},
+    {label:"Everyone else",text:`Drake also hits Future, Metro Boomin, The Weeknd and Rick Ross for [[bs:wdty|joining the pile-on]] ${c("stereogumLeak")}.`,back:["wdty"]}
    ]},
-  {id:"taylormade",artist:"drake",by:"Drake",title:"Taylor Made Freestyle",d:"2024-04-19",date:"Apr 19, 2024",home:"Instagram only, removed Apr 26",
+  {id:"taylormade",noplay:`There is no official version to play. Drake posted it only on social media and took it down within a week after Tupac’s estate objected ${c("cbc2024a")}.`,artist:"drake",by:"Drake",title:"Taylor Made Freestyle",d:"2024-04-19",date:"Apr 19, 2024",home:"Instagram only, removed Apr 26",
    answers:["likethat"],answeredBy:["euphoria"],
    parts:[
-    {label:"The AI guests",text:`Drake used AI-generated imitations of Tupac Shakur and Snoop Dogg, two of Kendrick’s West Coast heroes, to goad him into replying ${c("cbc2024b")}.`,back:["estate"]},
-    {label:"The Swift taunt",text:`Drake jokes that Kendrick can’t reply until Taylor Swift finishes her album rollout ${c("songfacts")}.`,back:["swift-week","bad-blood"]},
-    {label:"Afterlife",text:`Tupac’s estate threatened legal action and the song came down within a week ${c("cbc2024a")}.`,back:["estate"]}
+    {label:"The AI guests",text:`Drake used [[bs:estate|AI-generated imitations of Tupac Shakur and Snoop Dogg]], two of Kendrick’s West Coast heroes, to goad him into replying ${c("cbc2024b")}.`,back:["estate"]},
+    {label:"The Swift taunt",text:`Drake jokes that Kendrick can’t reply until [[bs:swift-week|Taylor Swift finishes her album rollout]] ${c("songfacts")}.`,back:["swift-week","bad-blood"]},
+    {label:"Afterlife",text:`[[lg:lg-estate|Tupac’s estate threatened legal action]] and the song came down within a week ${c("cbc2024a")}.`,back:["estate"]}
    ]},
-  {id:"euphoria",artist:"kendrick",by:"Kendrick Lamar",title:"Euphoria",d:"2024-04-30",date:"Apr 30, 2024",home:"Streaming and YouTube",
+  {id:"euphoria",play:{yt:"fAqa1ozCuj8",ref:"sEuphoria"},artist:"kendrick",by:"Kendrick Lamar",title:"Euphoria",d:"2024-04-30",date:"Apr 30, 2024",home:"Streaming and YouTube",
    answers:["pushups","taylormade"],answeredBy:["familymatters"],
    parts:[
-    {label:"The title",text:`It nods to HBO’s <i>Euphoria</i>, which Drake executive-produces ${c("npr2024c")}.`,back:["hbo-euphoria"]},
-    {label:"Slow opening",text:`Kendrick casts Drake as a manipulator inventing family stories because he had heard Kendrick’s confessional album ${c("hnhh2024")}.`,back:["mr-morale"]},
-    {label:"AI and ghostwriters",text:`He mocks the AI Tupac verse and revives the old claim that Drake relies on other writers ${c("yahoo2024","npr2024c")}.`,back:["estate","meek"]},
-    {label:"Identity and fatherhood",text:`He questions Drake’s authenticity, racial identity and parenting ${c("ktvu2024")}.`,back:["adonis"]}
+    {label:"The title",text:`It nods to [[bs:hbo-euphoria|HBO’s <i>Euphoria</i>]], which Drake executive-produces ${c("npr2024c")}.`,back:["hbo-euphoria"]},
+    {label:"Slow opening",text:`Kendrick casts Drake as a manipulator inventing family stories because he had heard [[bs:mr-morale|Kendrick’s confessional album]] ${c("hnhh2024")}.`,back:["mr-morale"]},
+    {label:"AI and ghostwriters",text:`He mocks [[song:taylormade|the AI Tupac verse]] and revives [[bs:meek|the old claim that Drake relies on other writers]] ${c("yahoo2024","npr2024c")}.`,back:["estate","meek"]},
+    {label:"Identity and fatherhood",text:`He questions Drake’s authenticity, racial identity and [[bs:adonis|parenting]] ${c("ktvu2024")}.`,back:["adonis"]}
    ]},
-  {id:"six16",artist:"kendrick",by:"Kendrick Lamar",title:"6:16 in LA",d:"2024-05-03",date:"May 3, 2024",home:"Instagram only",
+  {id:"six16",noplay:`There is no official upload to play here. Kendrick released it only as an Instagram post, not on YouTube or streaming services ${c("cirisano2024")}.`,artist:"kendrick",by:"Kendrick Lamar",title:"6:16 in LA",d:"2024-05-03",date:"May 3, 2024",home:"Instagram only",
    answers:["pushups"],answeredBy:["familymatters"],
    parts:[
     {label:"The title",text:`A timestamp title, borrowing the format of Drake’s own series of timestamped songs ${c("stereogumHP6")}.`,back:[]},
-    {label:"The mole",text:`Kendrick hints that people inside Drake’s OVO camp are feeding him information, which set off a wave of fan theories ${c("root2024a")}.`,back:[]},
+    {label:"The mole",text:`Kendrick hints that people inside Drake’s OVO camp are [[song:hp6|feeding him information]], which set off a wave of fan theories ${c("root2024a")}.`,back:[]},
     {label:"Where it lived",text:`It appeared on Instagram rather than streaming services ${c("cirisano2024")}.`,back:[]}
    ]},
-  {id:"familymatters",artist:"drake",by:"Drake",title:"Family Matters",d:"2024-05-03",date:"May 3, 2024",home:"Music video and streaming",
+  {id:"familymatters",play:{yt:"ZkXG3ZrXlbc",ref:"sFamily"},artist:"drake",by:"Drake",title:"Family Matters",d:"2024-05-03",date:"May 3, 2024",home:"Music video and streaming",
    answers:["euphoria","six16"],answeredBy:["grahams","notlikeus"],
    parts:[
-    {label:"The teaser",text:`Before release, Drake posted a parody of “Buried Alive Interlude,” the <i>Take Care</i> song Kendrick had been featured on ${c("phillips2024")}.`,back:["take-care"]},
-    {label:"Kendrick’s relationship",text:`Drake accuses Kendrick of abusing and cheating on his fiancée, leaning on what Kendrick had admitted on <i>Mr. Morale</i> ${c("phillips2024","stereogumFM")}.`,back:["mr-morale"]},
+    {label:"The teaser",text:`Before release, Drake posted a parody of [[bs:take-care|“Buried Alive Interlude,” the <i>Take Care</i> song Kendrick had been featured on]] ${c("phillips2024")}.`,back:["take-care"]},
+    {label:"Kendrick’s relationship",text:`Drake accuses Kendrick of abusing and cheating on his fiancée, leaning on [[bs:mr-morale|what Kendrick had admitted on <i>Mr. Morale</i>]] ${c("phillips2024","stereogumFM")}.`,back:["mr-morale"]},
     {label:"Paternity claim",text:`He suggests one of Kendrick’s children may have been fathered by Kendrick’s business partner, Dave Free ${c("stereogumFM")}.`,back:[]},
-    {label:"Turning “Euphoria” around",text:`He answers Kendrick’s questions about his identity by pointing at Kendrick’s own family, and takes shots at Metro Boomin, A$AP Rocky and Rick Ross ${c("stereogumFM","phillips2024")}.`,back:["wdty"]}
+    {label:"Turning “Euphoria” around",text:`He answers [[song:euphoria|Kendrick’s questions about his identity]] by pointing at Kendrick’s own family, and takes shots at [[bs:wdty|Metro Boomin, A$AP Rocky and Rick Ross]] ${c("stereogumFM","phillips2024")}.`,back:["wdty"]}
    ]},
-  {id:"grahams",artist:"kendrick",by:"Kendrick Lamar",title:"Meet the Grahams",d:"2024-05-04",date:"May 3–4, 2024",home:"YouTube",
+  {id:"grahams",play:{yt:"J_tchksaJCM",ref:"sGrahams"},artist:"kendrick",by:"Kendrick Lamar",title:"Meet the Grahams",d:"2024-05-04",date:"May 3–4, 2024",home:"YouTube",
    answers:["familymatters"],answeredBy:["hp6"],
    parts:[
-    {label:"A letter to the family",text:`Written as open letters to Drake’s son, his parents, an alleged daughter and finally Drake himself ${c("fox4_2024")}.`,back:["adonis"]},
-    {label:"A second hidden child",text:`Kendrick claims Drake has a secret daughter, echoing how Pusha T exposed Drake’s son in 2018 ${c("fox4_2024")}.`,back:["adonis"]},
+    {label:"A letter to the family",text:`Written as open letters to [[bs:adonis|Drake’s son]], his parents, an alleged daughter and finally Drake himself ${c("fox4_2024")}.`,back:["adonis"]},
+    {label:"A second hidden child",text:`Kendrick claims Drake has a secret daughter, echoing [[bs:adonis|how Pusha T exposed Drake’s son in 2018]] ${c("fox4_2024")}.`,back:["adonis"]},
     {label:"Widening the accusations",text:`He calls Drake a deadbeat father and alleges sexual misconduct around Drake’s circle ${c("thegrio2024")}.`,back:[]}
    ]},
-  {id:"notlikeus",artist:"kendrick",by:"Kendrick Lamar",title:"Not Like Us",d:"2024-05-04",date:"May 4, 2024",home:"YouTube and streaming",
+  {id:"notlikeus",play:{yt:"T6eK-2OQtew",ref:"sNotLikeUs"},artist:"kendrick",by:"Kendrick Lamar",title:"Not Like Us",d:"2024-05-04",date:"May 4, 2024",home:"YouTube and streaming",
    answers:["familymatters"],answeredBy:["hp6"],
    parts:[
     {label:"The sound",text:`A Mustard-produced West Coast party beat with a call-and-response hook, the opposite of the long, dense tracks before it ${c("ap2025","bet2024")}.`,back:[]},
-    {label:"The accusation",text:`Kendrick accuses Drake and members of his OVO circle of preying on minors, twisting the title of Drake’s 2021 album to do it ${c("americansongwriter2024")}.`,back:["clb"]},
-    {label:"The Atlanta verse",text:`He says Drake borrowed credibility from Atlanta rappers and calls him a colonizer of the culture ${c("ap2025","root2024b")}.`,back:["atlanta"]},
-    {label:"The cover art",text:`An aerial photo of Drake’s Toronto home dotted with sex-offender map icons, later cited in Drake’s lawsuit ${c("fader2025")}.`,back:[]},
-    {label:"The “A minor” line",text:`A short pun that became the song’s most-shouted moment, later sung by a whole Super Bowl stadium ${c("avclub2025")}.`,back:[]}
+    {label:"The accusation",text:`Kendrick accuses Drake and members of his OVO circle of preying on minors, twisting [[bs:clb|the title of Drake’s 2021 album]] to do it ${c("americansongwriter2024")}.`,back:["clb"]},
+    {label:"The Atlanta verse",text:`He says Drake [[bs:atlanta|borrowed credibility from Atlanta rappers]] and calls him a colonizer of the culture ${c("ap2025","root2024b")}.`,back:["atlanta"]},
+    {label:"The cover art",text:`An aerial photo of Drake’s Toronto home dotted with sex-offender map icons, later cited in [[lg:lg-lawsuit|Drake’s lawsuit]] ${c("fader2025")}.`,back:[]},
+    {label:"The “A minor” line",text:`A short pun that became the song’s most-shouted moment, later sung by [[ev:super-bowl|a whole Super Bowl stadium]] ${c("avclub2025")}.`,back:[]}
    ]},
-  {id:"hp6",artist:"drake",by:"Drake",title:"The Heart Part 6",d:"2024-05-05",date:"May 5, 2024",home:"YouTube link",
+  {id:"hp6",play:{yt:"HJeY-FXidDQ",ref:"sHP6"},artist:"drake",by:"Drake",title:"The Heart Part 6",d:"2024-05-05",date:"May 5, 2024",home:"YouTube link",
    answers:["grahams","notlikeus"],answeredBy:[],
    parts:[
-    {label:"The title and cover",text:`The title borrows Kendrick’s own “The Heart” series, and the cover shows an Instagram comment by Dave Free ${c("billboard2024","stereogumHP6")}.`,back:["mr-morale"]},
-    {label:"The denial",text:`Drake denies the pedophilia accusations ${c("stereogumHP6")}.`,back:[]},
-    {label:"The bait claim",text:`He says his team planted the secret-daughter story so Kendrick would use it ${c("billboard2024")}.`,back:[]},
-    {label:"Back to <i>Mr. Morale</i>",text:`He returns to Kendrick’s album, especially “Mother I Sober,” to repeat his claims about Kendrick’s family ${c("hnhh2024")}.`,back:["mr-morale"]}
+    {label:"The title and cover",text:`The title borrows [[bs:mr-morale|Kendrick’s own “The Heart” series]], and the cover shows an Instagram comment by Dave Free ${c("billboard2024","stereogumHP6")}.`,back:["mr-morale"]},
+    {label:"The denial",text:`Drake denies [[song:notlikeus|the pedophilia accusations]] ${c("stereogumHP6")}.`,back:[]},
+    {label:"The bait claim",text:`He says his team planted [[song:grahams|the secret-daughter story]] so Kendrick would use it ${c("billboard2024")}.`,back:[]},
+    {label:"Back to <i>Mr. Morale</i>",text:`He returns to [[bs:mr-morale|Kendrick’s album, especially “Mother I Sober,”]] to repeat his claims about Kendrick’s family ${c("hnhh2024")}.`,back:["mr-morale"]}
    ]}
 ];
 
@@ -511,6 +520,14 @@ const REF_SUMMARIES = {
   vVill:`A commentary video on Drake’s lawsuit naming Kai Cenat and other YouTubers’ reaction videos in federal court documents.`,
   vABC7:`A local TV news segment from ABC7 reporting that a federal judge dismissed Drake’s defamation case.`,
   vMcCune:`A short vertical video from McCune Law Group in which attorney Joe Richardson explains why the defamation case was dismissed.`,
+  sFps:`Drake’s official audio upload of “First Person Shooter” with J. Cole on his VEVO channel. It is the player for this song on the Song timeline.`,
+  sLikeThat:`The official audio of “Like That” on Future’s VEVO channel, the song with Kendrick’s verse rejecting the “big three.”`,
+  sPushUps:`The official audio of Drake’s “Push Ups,” auto-published to YouTube by his label’s distributor (a “Topic” channel).`,
+  sEuphoria:`The official audio of Kendrick’s “euphoria,” auto-published to YouTube by his label’s distributor (a “Topic” channel).`,
+  sFamily:`The official music video for “Family Matters,” posted on Drake’s own YouTube channel.`,
+  sGrahams:`The official audio of Kendrick’s “meet the grahams,” auto-published to YouTube by his label’s distributor (a “Topic” channel).`,
+  sNotLikeUs:`The official audio of “Not Like Us” on Kendrick Lamar’s own YouTube channel.`,
+  sHP6:`Drake’s own YouTube upload of “The Heart Part 6.” The song was never released to streaming services, so this upload is its official home.`,
   anthropic2026:`The AI model used to find and check sources, draft the site’s text and code, and publish it. The full prompts and responses are in the Appendix, which also explains which parts are AI-drafted.`,
   vDeema:`An educational explainer from Deema’s Class on the dismissal and the “floodgates” argument, the worry that allowing this case would invite many more like it.`
 };

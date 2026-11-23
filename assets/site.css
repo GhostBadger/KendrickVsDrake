@@ -452,3 +452,21 @@ details.tools li{margin-bottom:3px}
   a{color:#000}
 }
 .gap p.eyebrow{font-size:13px}
+
+/* song players and in-text links (Song timeline) */
+.songplay{margin:6px 0 10px}
+.spframe{border-radius:8px;overflow:hidden;background:#000;max-width:560px}
+.spframe .vthumb{border-radius:0}
+.spframe iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
+.spcap{font-size:13.5px;color:var(--muted);margin:6px 0 0;max-width:560px}
+.noplay{font-size:15px;background:var(--paper);border:1px dashed var(--line);border-radius:8px;padding:10px 12px;margin:6px 0 12px;max-width:560px}
+.xlegend{font-size:13px;color:var(--muted);margin:10px 0 0;display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.xl{color:inherit;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:3px;cursor:pointer}
+.xl-bs{text-decoration-color:var(--accent)}
+.xl-song{text-decoration-color:var(--c,var(--drake));text-decoration-style:dotted}
+.xl-lg{text-decoration-color:var(--court);text-decoration-style:dashed}
+.xl-ev{text-decoration-color:var(--other);text-decoration-style:double}
+a.xl:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
+.xlegend .xl{cursor:default}
+.tsbtn{font:600 12px var(--font-mono);border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:1px 8px;margin-left:6px;cursor:pointer}
+.tsbtn:hover{border-color:var(--c)}

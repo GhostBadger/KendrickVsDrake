@@ -794,6 +794,12 @@ window.USAGE = {
 "label": "Story · Counterpoint"
 }
 ],
+"sNotLikeUs": [
+{
+"id": "play-notlikeus",
+"label": "Songs · Not Like Us · player"
+}
+],
 "americansongwriter2024": [
 {
 "id": "song-notlikeus",
@@ -1064,10 +1070,34 @@ window.USAGE = {
 "page": "appendix.html"
 }
 ],
+"sFps": [
+{
+"id": "play-fps",
+"label": "Songs · First Person Shooter · player"
+}
+],
+"sLikeThat": [
+{
+"id": "play-likethat",
+"label": "Songs · Like That · player"
+}
+],
+"sPushUps": [
+{
+"id": "play-pushups",
+"label": "Songs · Push Ups · player"
+}
+],
 "uproxx2024b": [
 {
 "id": "song-pushups",
 "label": "Songs · Push Ups"
+}
+],
+"sEuphoria": [
+{
+"id": "play-euphoria",
+"label": "Songs · Euphoria · player"
 }
 ],
 "yahoo2024": [
@@ -1086,10 +1116,28 @@ window.USAGE = {
 "label": "Songs · The Heart Part 6"
 }
 ],
+"sFamily": [
+{
+"id": "play-familymatters",
+"label": "Songs · Family Matters · player"
+}
+],
 "stereogumFM": [
 {
 "id": "song-familymatters",
 "label": "Songs · Family Matters"
+}
+],
+"sGrahams": [
+{
+"id": "play-grahams",
+"label": "Songs · Meet the Grahams · player"
+}
+],
+"sHP6": [
+{
+"id": "play-hp6",
+"label": "Songs · The Heart Part 6 · player"
 }
 ]
 };

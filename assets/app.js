@@ -1,4 +1,4 @@
-/* Drake vs. Kendrick, Clipped — page logic for index.html */
+/* Kendrick vs. Drake, Clipped — page logic for index.html */
 (function(){
 "use strict";
 const $ = (s, r=document) => r.querySelector(s);
@@ -143,6 +143,33 @@ function chipList(ids, label){
   if(!ids.length) return "";
   return `<div class="linkchips"><span>${label}</span>${ids.map(id=>`<button data-go="${id}" style="--c:${SIDECOL[songById[id].artist]}">${songById[id].title}</button>`).join("")}</div>`;
 }
+/* [[bs:id|words]] → backstory, [[song:id|words]] → another song,
+   [[lg:id|words]] → legal timeline, [[ev:id|words]] → story timeline */
+function linkify(t){
+  return t.replace(/\[\[(bs|song|lg|ev):([a-z0-9-]+)\|(.+?)\]\]/g, (m,k,id,w) => {
+    if(k==="bs") return `<a class="xl xl-bs" href="#bs-${id}" data-bs="${id}" title="Backstory: ${esc(plain(bsById[id].title))}">${w}</a>`;
+    if(k==="song") return `<a class="xl xl-song" href="#song-${id}" data-go="${id}" title="Song: ${esc(plain(songById[id].title))}">${w}</a>`;
+    if(k==="lg") return `<a class="xl xl-lg" href="#${id}" title="Legal timeline">${w}</a>`;
+    return `<a class="xl xl-ev" href="#ev-${id}" title="Story timeline">${w}</a>`;
+  });
+}
+const inlineBs = t => [...t.matchAll(/\[\[bs:([a-z0-9-]+)\|/g)].map(m=>m[1]);
+const mmss = t => Math.floor(t/60)+":"+String(t%60).padStart(2,"0");
+function songPlayer(s){
+  if(s.noplay) return `<div class="noplay"><b>No player for this song.</b> ${s.noplay}</div>`;
+  if(!s.play) return "";
+  const r = REFS[s.play.ref];
+  return `<div class="songplay" id="play-${s.id}" data-loc="Songs · ${esc(plain(s.title))} · player">
+    <div class="spframe"><button class="vthumb" data-play="${s.play.yt}" aria-label="Play ${esc(plain(s.title))}">
+      <img src="https://i.ytimg.com/vi/${s.play.yt}/hqdefault.jpg" alt="" loading="lazy" onerror="this.remove()">
+      <span class="play"><span><svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true"><path d="M5 3 L15 9 L5 15 Z"/></svg></span></span></button></div>
+    <p class="spcap">Official upload: <a href="${r.url}" target="_blank" rel="noopener">${r.t}</a> · ${esc(r.a)} (<a class="cite" data-k="${s.play.ref}"></a>)</p>
+  </div>`;
+}
+function playSong(yt, start){
+  const box = $(".spframe", $("#songpanel")); if(!box) return;
+  box.innerHTML = `<iframe src="https://www.youtube-nocookie.com/embed/${yt}?autoplay=1&rel=0${start?`&start=${start}`:""}" title="Song player" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>`;
+}
 function selectSong(id){
   if(!songById[id]) id = "notlikeus";
   currentSong = id;
@@ -156,18 +183,22 @@ function selectSong(id){
     <div class="by">${s.by}</div>
     <h2>${s.title}</h2>
     <div class="songmeta"><span><b>Released:</b> ${s.date}</span><span><b>First home:</b> ${s.home}</span></div>
+    ${songPlayer(s)}
     <div class="btnrow"><a class="btn" href="${genius}" target="_blank" rel="noopener">Read the lyrics on Genius ↗</a></div>
     ${chipList(s.answers,"Answers:")}${chipList(s.answeredBy,"Answered by:")}
-    <ol class="parts">${s.parts.map((p,i)=>`<li id="song-${s.id}-${i+1}">
-      <span class="plabel">${String(i+1).padStart(2,"0")} · ${p.label}</span>
-      <p>${p.text}</p>
-      ${p.back.length?`<div class="backchips"><span>Points back to:</span>${p.back.map(b=>`<button data-bs="${b}">${bsById[b].date} · ${plain(bsById[b].title)}</button>`).join("")}</div>`:""}
-    </li>`).join("")}</ol></div>`;
+    <p class="xlegend">Underlined phrases jump to what they refer to: <span class="xl xl-bs">backstory</span> <span class="xl xl-song">another song</span> <span class="xl xl-lg">legal timeline</span> <span class="xl xl-ev">story timeline</span></p>
+    <ol class="parts">${s.parts.map((p,i)=>{ const back=[...new Set([...p.back,...inlineBs(p.text)])]; return `<li id="song-${s.id}-${i+1}">
+      <span class="plabel">${String(i+1).padStart(2,"0")} · ${p.label}</span>${p.t!=null&&s.play?` <button class="tsbtn" data-t="${p.t}" aria-label="Play from ${mmss(p.t)}">▶ ${mmss(p.t)}</button>`:""}
+      <p>${linkify(p.text)}</p>
+      ${back.length?`<div class="backchips"><span>Points back to:</span>${back.map(b=>`<button data-bs="${b}">${bsById[b].date} · ${plain(bsById[b].title)}</button>`).join("")}</div>`:""}
+    </li>`; }).join("")}</ol></div>`;
   fillCites(panel);
-  $$("[data-go]", panel).forEach(b => b.addEventListener("click", () => { selectSong(b.dataset.go); history.replaceState(null,"","#song-"+b.dataset.go); $("#songgrid").scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"}); }));
-  $$("[data-bs]", panel).forEach(b => b.addEventListener("click", () => focusBackstory(b.dataset.bs)));
+  $$("[data-play]", panel).forEach(b => b.addEventListener("click", () => playSong(b.dataset.play, 0)));
+  $$(".tsbtn", panel).forEach(b => b.addEventListener("click", () => { playSong(s.play.yt, +b.dataset.t); $(".songplay",panel).scrollIntoView({behavior:reduced?"auto":"smooth",block:"nearest"}); }));
+  $$("[data-go]", panel).forEach(b => b.addEventListener("click", e => { e.preventDefault(); selectSong(b.dataset.go); history.replaceState(null,"","#song-"+b.dataset.go); $("#songgrid").scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"}); }));
+  $$("[data-bs]", panel).forEach(b => b.addEventListener("click", e => { e.preventDefault(); focusBackstory(b.dataset.bs); }));
   // highlight backstory
-  const hits = new Set(s.parts.flatMap(p=>p.back));
+  const hits = new Set(s.parts.flatMap(p=>[...p.back,...inlineBs(p.text)]));
   $$("#bslist li").forEach(li => { const on = hits.has(li.dataset.id); li.classList.toggle("hit",on); li.classList.toggle("dim",!on); });
   $$("#bsaxis .dot").forEach(d => d.classList.toggle("hit", hits.has(d.dataset.id)));
   const box = $("#backstory"), first = $("#bslist li.hit");
@@ -286,13 +317,13 @@ function showView(v){
   $$("[data-view]").forEach(s => s.hidden = s.dataset.view !== v);
   $$(".tabs a[data-tab]").forEach(a => a.setAttribute("aria-current", a.dataset.tab===v ? "page" : "false"));
   if(v==="songs") renderDrop();   // chips need a visible box to measure
-  document.title = {story:"Drake vs. Kendrick, Clipped",songs:"Song timeline · Clipped",legal:"Legal timeline · Clipped",creators:"Creator watch · Clipped"}[v];
+  document.title = {story:"Kendrick vs. Drake, Clipped",songs:"Song timeline · Clipped",legal:"Legal timeline · Clipped",creators:"Creator watch · Clipped"}[v];
 }
 function route(){
   const h = decodeURIComponent(location.hash.slice(1));
   if(!h || h==="story"){ showView("story"); if(!h) return; window.scrollTo(0,0); return; }
   if(VIEWS.includes(h)){ showView(h); window.scrollTo(0,0); return; }
-  if(h.startsWith("song-")){
+  if(h.startsWith("song-") || h.startsWith("play-")){
     const id = h.slice(5).split("-")[0];
     showView("songs"); selectSong(id);
     const el = $("#"+CSS.escape(h)) || $("#songgrid");
@@ -338,6 +369,7 @@ route();
   const all = JSON.stringify([EVENTS,SONGS,BACKSTORY,LEGAL,CREATOR_PHASES,LOOP]);
   (all.match(/data-k=\\?"([^"\\]+)\\?"/g)||[]).forEach(m=>used.add(m.replace(/.*data-k=\\?"/,"").replace(/\\?"$/,"")));
   CREATOR_PHASES.forEach(p=>p.videos.forEach(v=>v.ref&&used.add(v.ref)));
+  SONGS.forEach(s=>s.play&&used.add(s.play.ref));
   const unused = Object.keys(REFS).filter(k=>!used.has(k));
   if(unused.length) console.warn("Uncited references:", unused.join(", "));
 })();

@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>References · Drake vs. Kendrick, Clipped</title>
+<title>References · Kendrick vs. Drake, Clipped</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=IBM+Plex+Mono:wght@400;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -12,7 +12,7 @@
 <body>
 <header class="sitehead">
   <div class="wrap">
-    <a class="brand" href="index.html#story"><span class="d">Drake</span> vs. <span class="k">Kendrick</span>, Clipped</a>
+    <a class="brand" href="index.html#story"><span class="k">Kendrick</span> vs. <span class="d">Drake</span>, Clipped</a>
     <nav class="tabs" aria-label="Views">
       <a href="index.html#story">Story</a>
       <a href="index.html#songs">Song timeline</a>
@@ -37,6 +37,7 @@
           <button class="chip" data-cat="research" aria-pressed="false" style="--c:var(--accent)">Research &amp; data</button>
           <button class="chip" data-cat="academic" aria-pressed="false" style="--c:var(--court)">Peer-reviewed</button>
           <button class="chip" data-cat="video" aria-pressed="false" style="--c:var(--kendrick)">Videos</button>
+          <button class="chip" data-cat="music" aria-pressed="false" style="--c:var(--other)">Songs</button>
           <button class="chip" data-cat="ai" aria-pressed="false" style="--c:var(--drake)">AI tool</button>
         </div>
         <label for="q" class="refstats">Search</label>
@@ -52,7 +53,7 @@
 <script src="assets/usage.js?v=20261122b"></script>
 <script>
 (function(){
-  const CAT = {news:"News & analysis",research:"Research & data",academic:"Peer-reviewed",video:"Video",ai:"AI tool"};
+  const CAT = {news:"News & analysis",research:"Research & data",academic:"Peer-reviewed",video:"Video",music:"Song (official upload)",ai:"AI tool"};
   const USE = window.USAGE || {};
   const list = Object.entries(REFS).sort((a,b)=>a[1].sort.localeCompare(b[1].sort,"en",{sensitivity:"base"}));
   const el = document.getElementById("reflist");
