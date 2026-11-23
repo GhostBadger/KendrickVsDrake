@@ -1048,6 +1048,22 @@ window.USAGE = {
 "label": "Creators · The courtroom: creators become legal explainers"
 }
 ],
+"anthropic2026": [
+{
+"id": "ai-use",
+"label": "Footer: AI use note"
+},
+{
+"id": "ai-statement",
+"label": "Appendix: AI use statement",
+"page": "appendix.html"
+},
+{
+"id": "ai-use",
+"label": "Appendix footer",
+"page": "appendix.html"
+}
+],
 "uproxx2024b": [
 {
 "id": "song-pushups",

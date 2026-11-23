@@ -11,8 +11,8 @@ const c = (...keys) => "(" + keys.map(k => `<a class="cite" data-k="${k}"></a>`)
    a = author as it appears in the reference list
    n = name used for in-text citations (defaults to a without trailing ".")
    y = year (or "n.d."), md = ", Month Day" part of the date (optional)
-   t = title, s = site/periodical, kind = web | periodical | journal | video
-   cat = news | research | academic | video
+   t = title, s = site/periodical, kind = web | periodical | journal | video | ai
+   cat = news | research | academic | video | ai
    Letters (2024a, 2024b) are added automatically.
    --------------------------------------------------------------------- */
 const REFS = {
@@ -106,7 +106,9 @@ const REFS = {
   vVill:{a:"THE VILL",y:"2025",md:", January",t:"Drake snitches on Kai Cenat &amp; YouTubers in federal documents for reacting to ‘Not Like Us’",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=dIJSC6yPr2g"},
   vABC7:{a:"ABC7",y:"2025",md:", October",t:"Drake’s ‘Not Like Us’ defamation case dismissed by federal judge",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=KUPG_8tGPdk"},
   vMcCune:{a:"McCune Law Group",y:"2025",md:", October",t:"Drake’s defamation lawsuit dismissed — here’s why (w/ attorney Joe Richardson)",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=foAqkthqbZE"},
-  vDeema:{a:"Deema’s Class",y:"2025",md:", December",t:"Results of the Drake vs. UMG lawsuit &amp; the floodgates argument",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=xDCzl8fydv4"}
+  vDeema:{a:"Deema’s Class",y:"2025",md:", December",t:"Results of the Drake vs. UMG lawsuit &amp; the floodgates argument",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=xDCzl8fydv4"},
+  /* ---- AI tool (APA 7 format for generative AI; prompts and responses in appendix.html) ---- */
+  anthropic2026:{a:"Anthropic",y:"2026",t:"Claude",ver:"Opus 5.5 version",desc:"Large language model",kind:"ai",cat:"ai",url:"https://claude.ai"}
 };
 
 /* ---------------------------------------------------------------------
@@ -422,6 +424,99 @@ const PSONGS = [
 ];
 
 /* ---------------------------------------------------------------------
+   REFERENCE SUMMARIES (annotated bibliography on references.html)
+   One or two sentences in my own words on what each source says.
+   --------------------------------------------------------------------- */
+const REF_SUMMARIES = {
+  adn2024:`News report on Drake’s two pre-action petitions, one in New York and one in Bexar County, Texas, accusing UMG, Spotify and iHeartMedia of using bots and pay-to-play deals to boost “Not Like Us.” It also notes Drake still had more monthly listeners than Lamar.`,
+  americansongwriter2024:`A song explainer that walks through what “Not Like Us” means, including how Lamar twists the title of Drake’s album <i>Certified Lover Boy</i>, and argues the track was the knockout blow of the feud.`,
+  ap2025:`AP’s report on Judge Jeannette Vargas dismissing Drake’s lawsuit against UMG. She ruled that, in the context of a heated rap battle, a reasonable listener would hear the pedophilia accusation as opinion, not as a statement of fact.`,
+  avclub2024:`An opinion piece arguing that Drake’s habit of trolling and leaning on an online echo chamber, which helped him against Meek Mill in 2015, did not work against Kendrick’s songwriting.`,
+  avclub2025:`A short news item on the Super Bowl LIX halftime show breaking the viewership record with 133.5 million viewers, noting that the stadium crowd shouted the “A minor” line.`,
+  bet2024:`A recap of Kendrick’s Juneteenth “Pop Out” concert at the Kia Forum, livestreamed on Amazon Music’s Twitch channel, where he brought out West Coast artists and performed “Not Like Us” five times.`,
+  billboard2024:`Billboard’s report on “The Heart Part 6,” in which Drake denies Kendrick’s accusations and claims his team fed Kendrick false information about a secret daughter. It describes the cover art, an Instagram comment by Dave Free.`,
+  billboard2025:`Billboard’s report that Kendrick’s halftime show drew 133.5 million viewers, edging out Michael Jackson’s 1993 record, as announced by Roc Nation, Apple Music and the NFL.`,
+  bradley2024:`A Daily Beast critique arguing that the meme-heavy online reaction turned serious accusations about real people, including abuse and pedophilia, into entertainment, and that the jokes mainly benefit the people profiting from the feud.`,
+  carry2025:`A Know Your Meme explainer on how Kendrick’s grin during the “Say Drake” line at the Super Bowl went viral on TikTok right after the show and spread as green-screen and CapCut templates.`,
+  cbc2024a:`CBC Music’s report on the Tupac Shakur estate sending Drake a cease-and-desist over the AI-generated Tupac voice in “Taylor Made Freestyle,” and the song disappearing from his social accounts by April 26.`,
+  cbc2024b:`A CBC explainer for general readers covering the beef’s background: a decade of veiled insults, J. Cole’s “big three” line and later apology, the “Push Ups” leak and Drake’s use of AI voices.`,
+  courthouse2025:`Courthouse News coverage of the 38-page dismissal ruling, including the judge’s finding that Drake’s claim that UMG artificially boosted the song relied on online comments and unverified reporting.`,
+  dailydot2025:`A round-up of the most-shared memes from Kendrick’s halftime show, including Serena Williams’ crip walk and Kendrick’s grin. It is an example of the press reporting memes as news.`,
+  dalugdug2026:`Music Business Worldwide’s report that the Second Circuit set December 4, 2026 for oral arguments in Drake’s appeal before a three-judge panel, with a ruling to follow on an unannounced date.`,
+  davis2024:`A TechCrunch analysis of how the internet changed rap battles: replies within minutes instead of days, streamers racing to react first, AI vocals and “BBL Drizzy,” fan campaigns, and critics calling Drake “chronically online.”`,
+  dexerto2024:`An explainer on the “BBL Drizzy” TikTok trend: what the phrase means, Metro Boomin’s beat contest, and how people who don’t rap joined in with dances and remakes.`,
+  fader2025:`The FADER’s report that Drake withdrew his petition and sued UMG for defamation and harassment. It highlights the “Not Like Us” cover art, an image of his Toronto home marked with sex-offender icons, as a safety threat cited in the complaint.`,
+  fader2026:`The FADER’s report on Drake surprise-releasing three albums, <i>Iceman</i>, <i>Habibti</i> and <i>Maid of Honor</i>, after previewing them in a YouTube livestream series.`,
+  fox32_2024:`A news report on Kendrick’s surprise album <i>GNX</i>. It notes that the opening track addresses Lil Wayne being passed over for the Super Bowl, and recalls Kendrick’s Pulitzer Prize for <i>DAMN.</i>`,
+  fox4_2024:`A report on “Meet the Grahams” accusing Drake of having a secret daughter, written as letters to Drake’s family. It draws the parallel to Pusha T revealing Drake’s son in 2018.`,
+  hnhh2024:`A HotNewHipHop analysis of how Drake used Kendrick’s song “Mother I Sober” in “The Heart Part 6.” It argues Drake misread the song and that Kendrick’s confessional album had already blunted attacks on his character.`,
+  hotpress2024:`A short report on the “Not Like Us” music video premiering on July 4, 2024 and passing 12 million YouTube views in about 12 hours.`,
+  hypebeast2024:`A chart report: “Not Like Us” debuted at No. 1 on the Billboard Hot 100 with 70.9 million U.S. streams in its first tracking week, while Drake’s “Family Matters” debuted at No. 7.`,
+  insurancejournal2025:`A report that iHeartMedia said it settled with Drake only after showing it did nothing wrong, that no money changed hands, and that Drake cannot refile against the company.`,
+  katersky2025:`ABC News’ report on the dismissal. It lists the five Grammys “Not Like Us” won and summarizes the judge’s reasoning that listeners don’t treat a diss track as fact-checked reporting.`,
+  kym2025:`Know Your Meme’s running entry on the feud. It logs each diss track with early view counts, the memes and skits each one produced, and the fan theories after the shooting at Drake’s home.`,
+  kymdaughter:`Know Your Meme’s entry on the “secret daughter” rumour: how it spread as memes on X, Reddit and TikTok after “Meet the Grahams,” and Drake’s later claim that it was planted. It notes the photos used in the rumour are unverified.`,
+  ktvu2024:`A syndicated FOX timeline of the feud from “First Person Shooter” to “Not Like Us.” It warns that diss tracks include exaggerations and notes that police had not linked the shooting at Drake’s home to the feud.`,
+  landrum2024:`AP’s report on <i>GNX</i>, released without warning on November 22, 2024, covering its producers and guests (including Jack Antonoff, Mustard and SZA) months after the Drake battle.`,
+  mbw2025a:`A report that Drake and iHeartMedia reached what both sides called an amicable resolution, removing iHeart from the Texas petition while the petition against UMG stayed active.`,
+  mbw2025b:`A report on UMG’s March 17, 2025 motion to dismiss. It called Drake’s lawsuit meritless and said he had sued his own label to soothe the sting of losing a rap battle.`,
+  mbw2026:`A report on Drake’s 117-page appeal brief, which argues the lower court created a “dangerous categorical rule” for diss tracks and was wrong to judge the song only within the whole battle. The brief also revives his deceptive-practices claim.`,
+  mbw2026reply:`A report on Drake’s April 17, 2026 reply brief, which argues the judge dismissed the case too early. It also summarizes UMG’s position that Drake started the battle himself.`,
+  mercante2024:`A Kotaku essay arguing the beef was made for internet culture. Memes signal which side you are on, and Drake courted online fans and Kick streamers, yet the internet mostly sided with Kendrick.`,
+  npr2024a:`NPR’s report on Drake’s petition alleging UMG used bots, paid influencers and radio stations, and gave Spotify a 30% lower licensing fee in exchange for promoting “Not Like Us.” It includes UMG’s denial.`,
+  npr2024b:`An NPR critic’s essay on the feud as psychological warfare that fed on distorted narratives. It notes the final songs spread as YouTube links and social posts, and argues Drake misjudged what kind of battle Kendrick was fighting.`,
+  npr2024c:`NPR’s review of “Euphoria,” calling it raw and emotional. It notes the title points to Drake’s role on HBO’s <i>Euphoria</i> and contrasts Kendrick’s real voice with Drake’s use of AI.`,
+  npr2025:`NPR’s report on Drake’s 2025 federal lawsuit. The complaint describes three attempted home invasions including the guard’s shooting, the cover art, online hate and a flyer calling him a predator, and claims the song invites vigilante justice.`,
+  ocho2026:`Complex’s chart report on <i>Iceman</i> debuting at No. 1 with 463,000 units, and on Drake becoming the first artist to hold the top three Billboard 200 spots at once.`,
+  phillips2024:`A HotNewHipHop breakdown of “Family Matters”: the “Buried Alive Interlude” teaser, the accusations about Kendrick’s relationship and Dave Free, and the shots at Metro Boomin, The Weeknd, Rick Ross and A$AP Rocky.`,
+  rollingstone2024:`A Rolling Stone explainer on why so many artists, including Future, Metro Boomin, Rick Ross and The Weeknd, turned on Drake in spring 2024, with the history behind each rift.`,
+  rollingstone2025:`Rolling Stone’s report on Drake filing his notice of appeal after the October 2025 dismissal. It recaps his claims and the judge’s reasoning, including her reference to “Taylor Made Freestyle.”`,
+  rollingstone2026:`Rolling Stone’s report on UMG’s 83-page appeals brief, which calls Drake’s appeal hypocritical and argues the lyrics are classic opinion that Drake himself provoked.`,
+  root2024a:`The Root’s round-up of the funniest social media reactions to the beef, including memes about the OVO “mole” hinted at in “6:16 in LA.” It suggests social media was the beef’s biggest winner.`,
+  root2024b:`An essay arguing “Not Like Us” is more than a diss. It explains the Atlanta verse and Drake’s long relationship with Atlanta artists.`,
+  roytburg2024:`A Fortune feature on how comedian King Willonius made “BBL Drizzy” with the AI tool Udio, how Metro Boomin’s sample and $10,000 contest made it a hit, and why musicians worry about AI. It notes Willonius was paid when Drake later sampled it.`,
+  songfacts:`A Songfacts entry explaining “Push Ups”: the claim that Kendrick gave half his earnings to Top Dawg Entertainment, the jabs at his Taylor Swift and Maroon 5 features, and how “Taylor Made Freestyle” followed the same day.`,
+  stanton2025:`A PC Gamer report that Drake’s lawsuit cited streamers’ reaction videos, including a Kai Cenat video with over 9 million views, as evidence UMG let the song spread freely, and how those streamers responded with more reactions.`,
+  stereogum2018:`A 2018 report, written after Pusha T’s “The Story of Adidon,” on reports that Drake had met his alleged son Adonis several times before publicly acknowledging him.`,
+  stereogumLeak:`A Stereogum report on the leaked “Push Ups” and Rick Ross’s quick response, listing Drake’s shots at Future, Metro Boomin and The Weeknd.`,
+  stereogumHP6:`A Stereogum report on “The Heart Part 6”: Drake denies the pedophilia allegations and says his camp fed Kendrick false information. It also notes Kendrick had borrowed Drake’s timestamp-title format for “6:16 in LA.”`,
+  stereogumFM:`A Stereogum report on “Family Matters”: Drake’s claims about Kendrick’s relationship, the Dave Free paternity claim, and his reply to Kendrick questioning his Blackness.`,
+  stereogum2024:`Stereogum’s chart news that “Not Like Us” debuted at No. 1 on the Hot 100. It notes that “Like That” had also debuted at No. 1 earlier in 2024.`,
+  thegrio2024:`theGrio’s full history of the feud, from early collaborations to 2024, with every diss track and its release date. It includes that “Meet the Grahams” dropped about 20 minutes after “Family Matters.”`,
+  thornton2026:`A report on two groups of legal scholars filing friend-of-the-court briefs that support the dismissal, arguing “Not Like Us” is protected opinion and that Drake’s case threatens free speech.`,
+  trapp2024:`A REVOLT report on “Not Like Us” playing during California’s turn at the 2024 Democratic National Convention roll call, plus its other surprise appearances at the BET Awards and the ESPYs.`,
+  uproxx2024a:`An explainer on where “BBL Drizzy” came from: Rick Ross’s April 2024 jab, King Willonius’s AI song, and Metro Boomin crediting Willonius after sampling it.`,
+  uproxx2024b:`A breakdown of everyone Drake targets in “Push Ups,” including Kendrick, The Weeknd, Future, Rick Ross and Metro Boomin, with the context behind each line.`,
+  usatoday2024:`USA Today’s report on “Euphoria,” with background going back to Kendrick’s 2013 “Control” verse and J. Cole’s “big three” line.`,
+  weiss2025:`The ABA Journal’s summary of the dismissal for a legal audience. The judge found the lyrics were hyperbolic opinion, and the article summarizes Drake’s claim that UMG ran a profit-driven campaign that included the Super Bowl.`,
+  welch2025:`TheWrap’s report on UMG moving to dismiss Drake’s amended complaint, which had added Kendrick’s Super Bowl halftime performance to the case.`,
+  xxl2024:`An XXL report that major record labels and the RIAA sued Udio, the AI music company whose tool created the original “BBL Drizzy,” for copyright infringement.`,
+  yahoo2024:`A report on fans picking apart the lyrics of “Euphoria,” including a line about AI and the ghostwriting accusations that have followed Drake for years.`,
+  cirisano2024:`MIDiA Research analysis arguing the feud was a rare mainstream moment that played out on social platforms, not streaming services. Diss tracks hit Instagram first, creators used the songs in monetized videos, and Genius led on lyric annotation.`,
+  guinness2025:`The Guinness World Records entry certifying Kendrick’s Super Bowl LIX show, at 133.5 million viewers, as the largest TV audience for a halftime performance.`,
+  matsa2026:`A Pew Research Center short read (August 2026 survey) finding that 20% of U.S. adults regularly get news on TikTok, up from 3% in 2020, including 39% of adults under 30.`,
+  pew2025:`A Pew Research Center analysis showing about half of TikTok users regularly get news there, and that they are as likely to get it from influencers or celebrities as from journalists.`,
+  tiktok2024:`TikTok’s announcement of its 2024 Songs of the Summer. “Not Like Us” appears in the U.S. top 10.`,
+  tubefilter2024:`A Tubefilter newsletter on YouTube’s 2024 year-end lists, reporting “Not Like Us” as the platform’s top trending song and Kendrick among the top search topics.`,
+  marwick2011:`A peer-reviewed study of how Twitter users imagine who is reading them. It introduces “context collapse”: when many audiences are flattened into one, people lose control over how their words are understood.`,
+  zulli2022:`A peer-reviewed article arguing that TikTok’s design (sounds, templates, editing tools and creation norms) encourages users to imitate and remix content, creating “imitation publics” connected through copying.`,
+  vKai:`Kai Cenat’s livestream reaction to “Family Matters,” uploaded to his clips channel. It shows how many fans first experienced the song.`,
+  vGabs:`A compilation that cuts several streamers’ live reactions to “Family Matters,” including Kai Cenat and Anthony Fantano, into one video.`,
+  vFantano:`A clip of music critic Anthony Fantano (theneedledrop) reacting live to “Meet the Grahams” soon after its release.`,
+  vRDC:`A fan-made compilation of RDCWorld1’s comedy skits about each round of the beef, arranged in chronological order.`,
+  vWillonius:`King Willonius’s original AI-generated parody song “BBL Drizzy,” posted on his own channel, which Metro Boomin later sampled.`,
+  vTracklib:`TRACKLIB’s sample breakdown of Metro Boomin’s “BBL Drizzy” beat, explaining that the vintage-sounding soul sample was made with AI weeks earlier.`,
+  vNFL:`The NFL’s official upload of Kendrick’s Apple Music Super Bowl LIX halftime show, which ended with “Not Like Us.”`,
+  vGNX:`A re-upload of Anthony Fantano’s full livestream reaction to <i>GNX</i> on its release day.`,
+  vVill:`A commentary video on Drake’s lawsuit naming Kai Cenat and other YouTubers’ reaction videos in federal court documents.`,
+  vABC7:`A local TV news segment from ABC7 reporting that a federal judge dismissed Drake’s defamation case.`,
+  vMcCune:`A short vertical video from McCune Law Group in which attorney Joe Richardson explains why the defamation case was dismissed.`,
+  anthropic2026:`The AI model used to find and check sources, draft the site’s text and code, and publish it. The full prompts and responses are in the Appendix, which also explains which parts are AI-drafted.`,
+  vDeema:`An educational explainer from Deema’s Class on the dismissal and the “floodgates” argument, the worry that allowing this case would invite many more like it.`
+};
+for(const [k,s] of Object.entries(REF_SUMMARIES)) if(REFS[k]) REFS[k].summary = s;
+
+/* ---------------------------------------------------------------------
    Reference formatting (shared by both pages)
    --------------------------------------------------------------------- */
 (function buildRefs(){
@@ -445,6 +540,7 @@ const PSONGS = [
     let body;
     if(r.kind==="journal") body = `${end(r.t)} <i>${r.journal}, ${r.vol}</i>(${r.issue}), ${r.pages}.`;
     else if(r.kind==="video") body = `<i>${r.t}</i> [Video]. YouTube.`;
+    else if(r.kind==="ai") body = `<i>${r.t}</i> (${r.ver}) [${r.desc}].`;
     else if(r.kind==="periodical") body = `${end(r.t)} <i>${r.s}</i>.`;
     else body = `<i>${end(r.t)}</i>` + (r.s && r.s!==r.a ? ` ${r.s}.` : "");
     const retrieved = r.retrieved ? ` Retrieved ${r.retrieved}, from` : "";
