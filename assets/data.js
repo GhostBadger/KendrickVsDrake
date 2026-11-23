@@ -311,7 +311,7 @@ const BACKSTORY = [
 ];
 
 const SONGS = [
-  {id:"fps",breakdown:{yt:"-4QMAsYBGcY",ref:"bdLikeThat",start:35,lead:`Want the background explained? This video starts at 0:35, where it gets to this song’s “big three” idea.`,note:`No breakdown of this song alone turned up from a channel we could check. This one is about “Like That,” and it starts at the chapter where Markman explains the “big three” idea from this song.`},cover:{sp:"7aqfrAY2p9BUSiupwk3svU",ref:"spFps",note:`The cover of <i>For All the Dogs</i>, the album this song is on. It was drawn by Drake’s son, Adonis ${c("deville2023")}.`},play:{yt:"sRs2o36a1Us",ref:"sFps"},artist:"drake",by:"Drake feat. J. Cole",title:"First Person Shooter",d:"2023-10-06",date:"Oct 2023",home:"Album track (streaming)",prologue:true,
+  {id:"fps",breakdown:{yt:"-4QMAsYBGcY",ref:"bdLikeThat",start:35,lead:`Want the background explained? This video starts at 0:35, where it gets to this song’s “big three” idea.`,note:`No breakdown video of this song alone was found. This one is about “Like That,” and it starts at the chapter where Markman explains the “big three” idea from this song.`},cover:{sp:"7aqfrAY2p9BUSiupwk3svU",ref:"spFps",note:`The cover of <i>For All the Dogs</i>, the album this song is on. It was drawn by Drake’s son, Adonis ${c("deville2023")}.`},play:{yt:"sRs2o36a1Us",ref:"sFps"},artist:"drake",by:"Drake feat. J. Cole",title:"First Person Shooter",d:"2023-10-06",date:"Oct 2023",home:"Album track (streaming)",prologue:true,
    answers:[],answeredBy:["likethat"],
    parts:[
     {label:"J. Cole’s verse",text:`Cole asks who the best rapper alive is, naming himself, Drake and Kendrick, and settles on the three of them as a [[bs:fps-bs|“big three”]] ${c("ktvu2024")}.`,back:["fps-bs"]},
