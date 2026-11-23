@@ -410,12 +410,40 @@ window.USAGE = {
 "label": "Story · Analysis · 03 The jury"
 },
 {
+"id": "ov-flow",
+"label": "Story · Open verse · How it happened"
+},
+{
 "id": "cost",
 "label": "Story · The cost"
 },
 {
 "id": "loop",
 "label": "Story · The feedback loop"
+}
+],
+"coleman2024": [
+{
+"id": "ev-bbl-drizzy",
+"label": "Story · Timeline · Metro Boomin’s “BBL Drizzy” beat (May 5, 2024)"
+},
+{
+"id": "ov-flow",
+"label": "Story · Open verse · How it happened"
+},
+{
+"id": "ov-numbers",
+"label": "Story · Open verse · Numbers"
+}
+],
+"power1051a": [
+{
+"id": "ev-bbl-drizzy",
+"label": "Story · Timeline · Metro Boomin’s “BBL Drizzy” beat (May 5, 2024)"
+},
+{
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
 }
 ],
 "dexerto2024": [
@@ -428,6 +456,10 @@ window.USAGE = {
 "label": "Story · Analysis · 03 The jury"
 },
 {
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
+},
+{
 "id": "loop",
 "label": "Story · The feedback loop"
 }
@@ -436,6 +468,10 @@ window.USAGE = {
 {
 "id": "ev-bbl-drizzy",
 "label": "Story · Timeline · Metro Boomin’s “BBL Drizzy” beat (May 5, 2024)"
+},
+{
+"id": "ov-flow",
+"label": "Story · Open verse · How it happened"
 },
 {
 "id": "cost",
@@ -754,6 +790,10 @@ window.USAGE = {
 {
 "id": "analysis",
 "label": "Story · Analysis: the four jobs of a clip"
+},
+{
+"id": "ov-means",
+"label": "Story · Open verse · What it means"
 }
 ],
 "pew2025": [
@@ -776,6 +816,152 @@ window.USAGE = {
 {
 "id": "loop",
 "label": "Story · The feedback loop"
+}
+],
+"uproxx2024a": [
+{
+"id": "ov-flow",
+"label": "Story · Open verse · How it happened"
+},
+{
+"id": "bs-ross",
+"label": "Songs · Backstory · Rick Ross coins “BBL Drizzy”"
+}
+],
+"kymBBL": [
+{
+"id": "ov-flow",
+"label": "Story · Open verse · How it happened"
+},
+{
+"id": "ov-numbers",
+"label": "Story · Open verse · Numbers"
+},
+{
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
+},
+{
+"id": "cw-openverse",
+"label": "Creators · The open verse: fans write the disses"
+}
+],
+"cline2024": [
+{
+"id": "ov-flow",
+"label": "Story · Open verse · How it happened"
+},
+{
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
+},
+{
+"id": "ov-press",
+"label": "Story · Open verse · Press coverage"
+},
+{
+"id": "openverse",
+"label": "Story · Case study: the open verse"
+}
+],
+"saponara2024": [
+{
+"id": "ov-flow",
+"label": "Story · Open verse · How it happened"
+}
+],
+"zeff2024": [
+{
+"id": "ov-flow",
+"label": "Story · Open verse · How it happened"
+},
+{
+"id": "ov-numbers",
+"label": "Story · Open verse · Numbers"
+},
+{
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
+},
+{
+"id": "ov-press",
+"label": "Story · Open verse · Press coverage"
+}
+],
+"rapup2024": [
+{
+"id": "ov-flow",
+"label": "Story · Open verse · How it happened"
+}
+],
+"power1051b": [
+{
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
+}
+],
+"complexRemix": [
+{
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
+},
+{
+"id": "ov-press",
+"label": "Story · Open verse · Press coverage"
+}
+],
+"onyewuchi2024": [
+{
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
+},
+{
+"id": "ov-press",
+"label": "Story · Open verse · Press coverage"
+}
+],
+"tDuolingo": [
+{
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
+},
+{
+"id": "cw-openverse",
+"label": "Creators · The open verse: fans write the disses"
+}
+],
+"cowen2024": [
+{
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
+}
+],
+"tJustin": [
+{
+"id": "ov-who",
+"label": "Story · Open verse · Who joined in"
+},
+{
+"id": "cw-openverse",
+"label": "Creators · The open verse: fans write the disses"
+}
+],
+"lawrence2024": [
+{
+"id": "ov-press",
+"label": "Story · Open verse · Press coverage"
+}
+],
+"robinson2024": [
+{
+"id": "ov-press",
+"label": "Story · Open verse · Press coverage"
+}
+],
+"higgins": [
+{
+"id": "ov-press",
+"label": "Story · Open verse · Press coverage"
 }
 ],
 "bradley2024": [
@@ -930,12 +1116,6 @@ window.USAGE = {
 "label": "Songs · Push Ups"
 }
 ],
-"uproxx2024a": [
-{
-"id": "bs-ross",
-"label": "Songs · Backstory · Rick Ross coins “BBL Drizzy”"
-}
-],
 "adn2024": [
 {
 "id": "legal-intro",
@@ -1022,6 +1202,24 @@ window.USAGE = {
 {
 "id": "cw-memes",
 "label": "Creators · Memes, skits and an AI hit"
+}
+],
+"vMetroBeat": [
+{
+"id": "cw-openverse",
+"label": "Creators · The open verse: fans write the disses"
+}
+],
+"vYuno": [
+{
+"id": "cw-openverse",
+"label": "Creators · The open verse: fans write the disses"
+}
+],
+"tCharlie": [
+{
+"id": "cw-openverse",
+"label": "Creators · The open verse: fans write the disses"
 }
 ],
 "vGNX": [

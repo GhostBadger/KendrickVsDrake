@@ -107,6 +107,26 @@ const REFS = {
   vABC7:{a:"ABC7",y:"2025",md:", October",t:"Drake’s ‘Not Like Us’ defamation case dismissed by federal judge",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=KUPG_8tGPdk"},
   vMcCune:{a:"McCune Law Group",y:"2025",md:", October",t:"Drake’s defamation lawsuit dismissed — here’s why (w/ attorney Joe Richardson)",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=foAqkthqbZE"},
   vDeema:{a:"Deema’s Class",y:"2025",md:", December",t:"Results of the Drake vs. UMG lawsuit &amp; the floodgates argument",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=xDCzl8fydv4"},
+  /* ---- the "BBL Drizzy" open verse (Story case study + Creator watch) ---- */
+  coleman2024:{a:"Coleman, C. V., II",n:"Coleman",y:"2024",md:", May 7",t:"Metro Boomin ups ante on BBL Drizzy beat giveaway, offers $10,000 to winner",s:"XXL",kind:"periodical",cat:"news",url:"https://www.xxlmag.com/metro-boomin-bbl-drizzy-beat-giveaway/"},
+  cline2024:{a:"Cline, G.",n:"Cline",y:"2024",md:", May 9",t:"20 of the best entries for Metro Boomin’s ‘BBL Drizzy’ beat giveaway",s:"XXL",kind:"periodical",cat:"news",url:"https://www.xxlmag.com/metro-boomin-bbl-drizzy-beat-giveaway-entries/"},
+  saponara2024:{a:"Saponara, M.",n:"Saponara",y:"2024",md:", May 6",t:"Metro Boomin responds to Drake’s disses & hosts ‘BBL Drizzy’ beat giveaway",s:"Billboard Canada",kind:"periodical",cat:"news",url:"https://ca.billboard.com/music/rb-hip-hop/metro-boomin-responds-to-drakes-disses-hosts-bbl-drizzy-beat-giveaway"},
+  zeff2024:{a:"Zeff, M.",n:"Zeff",y:"2024",md:", May",t:"The saga of ‘BBL Drizzy’",s:"Gizmodo",kind:"periodical",cat:"news",url:"https://gizmodo.com/saga-bbl-drizzy-drake-kendrick-lamar-metro-boomin-1851470820"},
+  complexRemix:{a:"Complex",y:"2024",md:", May",t:"Metro Boomin’s “BBL Drizzy” Drake diss is getting remixed by everyone: Merengue, Jersey club, and more",kind:"web",cat:"news",url:"https://www.complex.com/music/a/backwoodsaltar/metro-boomin-bbl-drizzy-drake-diss-remixes"},
+  onyewuchi2024:{a:"Onyewuchi, C.",n:"Onyewuchi",y:"2024",md:", May",t:"Metro Boomin’s “BBL Drizzy”: The 7 funniest remixes",s:"HotNewHipHop",kind:"periodical",cat:"news",url:"https://www.hotnewhiphop.com/801721-metro-boomin-bbl-drizzy-funny-remix"},
+  cowen2024:{a:"Cowen, T. W.",n:"Cowen",y:"2024",md:", May",t:"Of course Metro Boomin’s “BBL Drizzy” is Dr. Miami’s ‘new favorite song’",s:"Complex",kind:"periodical",cat:"news",url:"https://www.complex.com/music/a/tracewilliamcowen/dr-miami-metro-boomin-bbl-drizzy"},
+  rapup2024:{a:"Trapp, M.",n:"Trapp",y:"2024",md:", May 24",t:"Drake raps over Metro Boomin’s “BBL Drizzy” in Sexyy Red collaboration “U My Everything”",s:"Rap-Up",kind:"periodical",cat:"news",url:"https://rap-up.com/2024/05/24/drake-raps-over-metro-boomins-bbl-drizzy-in-sexyy-red-song"},
+  robinson2024:{a:"Robinson, K.",n:"Robinson",y:"2024",md:", May 15",t:"Metro Boomin’s ‘BBL Drizzy’ is more than a joke – it could signal the future of sampling",s:"Billboard",kind:"periodical",cat:"news",url:"https://www.billboard.com/business/tech/metro-boomin-bbl-drizzy-future-ai-sampling-1235682587/"},
+  power1051a:{a:"Power 105.1",y:"2024",md:", May 6",t:"Metro Boomin mocks Drake with ‘BBL Drizzy’ diss beat, Drake responds",kind:"web",cat:"news",url:"https://power1051.iheart.com/content/2024-05-06-metro-boomin-mocks-drake-with-bbl-drizzy-diss-beat-drake-responds"},
+  power1051b:{a:"Power 105.1",y:"2024",md:", May 7",t:"Metro Boomin adds cash prize to ‘BBL Drizzy’ challenge amid controversy",kind:"web",cat:"news",url:"https://power1051.iheart.com/content/2024-05-07-metro-boomin-adds-cash-prize-to-bbl-drizzy-challenge-amid-controversy"},
+  higgins:{a:"Higgins, D.",n:"Higgins",y:"n.d.",t:"Hard to cheer for the homeboy in current rap battle",s:"NextMag",kind:"web",cat:"news",retrieved:"November 23, 2026",url:"https://nextmag.ca/hard-to-cheer-for-the-homeboy-in-current-rap-battle/"},
+  lawrence2024:{a:"Lawrence, A.",n:"Lawrence",y:"2024",md:", May 10",t:"‘I bet Drake heard it and laughed’: BBL Drizzy is the real winner of the Drake-Kendrick feud",s:"The Guardian (Australia print edition, via PressReader)",kind:"periodical",cat:"news",url:"https://www.pressreader.com/australia/the-guardian-australia/20240510/282050512155391"},
+  kymBBL:{a:"Know Your Meme",y:"n.d.",t:"BBL Drizzy",kind:"web",cat:"news",retrieved:"November 23, 2026",url:"https://knowyourmeme.com/memes/bbl-drizzy"},
+  vMetroBeat:{a:"Metro Boomin",y:"2024",md:", May 5",t:"BBL DRIZZY BPM 150.mp3",kind:"audio",cat:"video",url:"https://soundcloud.com/metroboomin/bbl-drizzy-bpm-150-mp3"},
+  vYuno:{a:"Yuno Miles",y:"2024",md:", May",t:"Yuno Miles - Drake BBL Freestyle (Metro Boomin) #bbldrizzybeatgiveaway",kind:"video",cat:"video",url:"https://www.youtube.com/watch?v=CwQWrbkBmmM"},
+  tCharlie:{a:"Curtis-Beard, C. [@charliecurtisb]",n:"Curtis-Beard",y:"2024",md:", May 5",t:"BBL Drizzy?!? Another Drake diss?!",kind:"tiktok",cat:"video",url:"https://www.tiktok.com/@charliecurtisb/video/7365662009024679210"},
+  tJustin:{a:"Oh That’s Justin! [@oh_thats_justin]",n:"Oh That’s Justin!",y:"2024",md:", May",t:"[Reaction to a Japanese-language “BBL Drizzy” diss]",kind:"tiktok",cat:"video",url:"https://www.tiktok.com/@oh_thats_justin/video/7365684093368929579"},
+  tDuolingo:{a:"Duolingo English Test [@duolingoenglishtest]",n:"Duolingo English Test",y:"2024",md:", May",t:"[Duolingo owl mascot in a “BBL Drizzy” trend video]",kind:"tiktok",cat:"video",url:"https://www.tiktok.com/@duolingoenglishtest/video/7365866029420973355"},
   /* ---- official song uploads (the players on the Song timeline) ---- */
   sFps:{a:"DrakeVEVO",y:"2023",md:", October",t:"Drake - First Person Shooter (Audio) ft. J. Cole",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=sRs2o36a1Us"},
   sLikeThat:{a:"FutureVEVO",y:"2024",md:", March",t:"Future, Metro Boomin, Kendrick Lamar - Like That (Official Audio)",kind:"video",cat:"music",url:"https://www.youtube.com/watch?v=N9bKBAA22Go"},
@@ -163,8 +183,8 @@ const EVENTS = [
    what:`Drake denied the accusations and claimed his team had fed Kendrick false information about a secret daughter ${c("billboard2024")}.`,
    sf:`By then the secret-daughter claim was already a meme on X, Reddit and TikTok ${c("kymdaughter")}. A correction inside a song could not catch a joke that had already spread.`},
   {id:"bbl-drizzy",p:2,side:"platform",sfFlag:1,date:"May 5, 2024",title:"Metro Boomin’s “BBL Drizzy” beat",
-   what:`Producer Metro Boomin released a free beat sampling “BBL Drizzy,” a parody song that comedian King Willonius made with the AI music tool Udio, and offered $10,000 for the best verse over it ${c("roytburg2024")}.`,
-   sf:`It became a TikTok trend for rappers and non-rappers alike, from dance clips to cover versions ${c("dexerto2024")}. Major labels later sued the company behind Udio ${c("xxl2024")}.`},
+   what:`Producer Metro Boomin released a free beat sampling “BBL Drizzy,” a parody song that comedian King Willonius made with the AI music tool Udio, and promised a free beat for the best verse over it, raising the prize to $10,000 the next day ${c("roytburg2024","coleman2024")}.`,
+   sf:`Thousands of people answered with their own disses, remixes and dances on TikTok, Instagram, X and YouTube ${c("power1051a","dexerto2024")}. Major labels later sued the company behind Udio ${c("xxl2024")}. <a href="#openverse">Read the open-verse case study</a>.`},
   {id:"shooting",p:2,side:"other",date:"May 7, 2024",title:"Shooting outside Drake’s Toronto home",
    what:`A security guard was shot outside Drake’s Toronto mansion. At the time, police did not say the feud was connected ${c("ktvu2024")}.`,
    sf:`Social media filled the gap with competing theories about who was responsible ${c("kym2025")}. Online speculation and a real injury collided.`},
@@ -395,6 +415,15 @@ const CREATOR_PHASES = [
     {platform:"youtube",id:"VGGMQChuQHg",ref:"vTracklib",type:"Explainer",why:"A sample-breakdown channel explaining that the “vintage” sample was AI."}
    ],
    summary:`Once the songs were out, creators started retelling the feud as comedy. RDCWorld1’s skits turned each diss into a scene, and a fan channel compiled them in order, which is basically a timeline told through jokes. “BBL Drizzy” shows the other side: a comedian made a fake 1970s soul song with AI, a famous producer sampled it, and thousands of people rapped or danced over it. TRACKLIB’s breakdown did the kind of checking a journalist would do and showed that the “old” sample was brand new and machine-made. For me, this phase is where the feud stopped being about who was right and became something anyone could join.`},
+  {id:"cw-openverse",title:"The open verse: fans write the disses",when:"May 2024",
+   videos:[
+    {platform:"soundcloud",id:"1814779140",ref:"vMetroBeat",type:"The beat itself",why:"Metro Boomin’s free upload that started the contest."},
+    {platform:"youtube",id:"CwQWrbkBmmM",ref:"vYuno",type:"Contest entry",why:"One of the most-watched freestyles over the beat, from the rapper’s own channel."},
+    {platform:"tiktok",id:"7365662009024679210",ref:"tCharlie",url:"https://www.tiktok.com/@charliecurtisb/video/7365662009024679210",type:"Comedy skit",why:"Posted the day the beat dropped; millions of views within a day."},
+    {platform:"tiktok",id:"7365684093368929579",ref:"tJustin",url:"https://www.tiktok.com/@oh_thats_justin/video/7365684093368929579",type:"Reaction to a non-English entry",why:"A creator reviewing a diss performed in Japanese."},
+    {platform:"tiktok",id:"7365866029420973355",ref:"tDuolingo",url:"https://www.tiktok.com/@duolingoenglishtest/video/7365866029420973355",type:"Brand joins in",why:"Even the Duolingo owl showed up."}
+   ],
+   summary:`This is the phase where the audience stopped watching the feud and started writing it. Metro Boomin posted a free beat with a prize, and within days people were rapping, singing and dancing over it in different genres and languages. Yuno Miles’s freestyle trended on YouTube, a comedian’s skit about the beat got millions of views in a day ${c("kymBBL")}, one creator built a whole series out of entries in other languages, and even the Duolingo owl joined in. What stands out to me is that the joke kept going after the actual battle had ended. A template can outlive the event it came from.`},
   {id:"cw-lap",title:"The victory lap",when:"November 2024 – February 2025",
    videos:[
     {platform:"youtube",id:"cFCLqrCIDBk",ref:"vGNX",type:"Livestream re-upload",why:"A critic’s first listen to the surprise album the feud set up."},
@@ -522,6 +551,25 @@ const REF_SUMMARIES = {
   vVill:`A commentary video on Drake’s lawsuit naming Kai Cenat and other YouTubers’ reaction videos in federal court documents.`,
   vABC7:`A local TV news segment from ABC7 reporting that a federal judge dismissed Drake’s defamation case.`,
   vMcCune:`A short vertical video from McCune Law Group in which attorney Joe Richardson explains why the defamation case was dismissed.`,
+  coleman2024:`XXL’s report that Metro Boomin raised the stakes of his “BBL Drizzy” contest a day after launching it: $10,000 and a beat for the winner, and a beat for the runner-up.`,
+  cline2024:`An XXL roundup of 20 standout fan entries to Metro Boomin’s contest, published four days after the beat came out. It notes there was no deadline and that many fans were recording their own disses.`,
+  saponara2024:`Billboard’s report on Metro Boomin answering Drake’s shots on X, posting the “BBL Drizzy” beat and inviting fans to rap over it for a free beat. It also notes Drake’s mocking reply on Instagram.`,
+  zeff2024:`A Gizmodo roundup of the strangest “BBL Drizzy” versions online, from guitar and Bollywood takes to rapped verses. It reports the beat topped SoundCloud’s New and Hot chart with about 3.3 million plays.`,
+  complexRemix:`Complex’s list of viral “BBL Drizzy” remixes from TikTok, including merengue, Jersey club, a stadium-rock guitar solo and a version that reimagines the beat in different regional 1990s rap styles.`,
+  onyewuchi2024:`A HotNewHipHop list of the seven funniest “BBL Drizzy” remixes, noting that entries came from around the world and that the beat reached 3.3 million SoundCloud streams within a week.`,
+  cowen2024:`A Complex news item on celebrity plastic surgeon “Dr. Miami” posting a TikTok of the “BBL Drizzy” beat playing in his office, an example of public figures joining the trend.`,
+  rapup2024:`Rap-Up’s report that Drake rapped over Metro Boomin’s “BBL Drizzy” beat on Sexyy Red’s song “U My Everything,” released May 24, 2024, turning the joke back on itself.`,
+  robinson2024:`A Billboard analysis of “BBL Drizzy” as the first major hip-hop beat built on an AI-generated sample, and what it could mean for how producers find and clear samples in future.`,
+  power1051a:`A Power 105.1 news post on Metro Boomin’s diss beat and Drake’s reply. It reports that the contest inspired thousands of aspiring artists to record verses aimed at Drake.`,
+  power1051b:`A Power 105.1 news post on Metro Boomin adding a $10,000 prize, noting that submissions were arriving from around the world.`,
+  higgins:`A Canadian opinion column arguing that record labels and Metro Boomin were among the feud’s real winners, as thousands of independent rappers, singers and reggaeton artists recorded Drake disses over his beat.`,
+  lawrence2024:`A Guardian feature built around comedian King Willonius, who made the original “BBL Drizzy” with AI. It argues the song became a way for anyone to join in on dissing Drake.`,
+  kymBBL:`Know Your Meme’s entry on “BBL Drizzy”: Metro Boomin’s contest posts, 1.5 million SoundCloud plays in 24 hours, the AI origin of the sample, and examples of viral entries on TikTok and YouTube.`,
+  vMetroBeat:`Metro Boomin’s own SoundCloud upload of the “BBL Drizzy” beat, posted free for anyone to rap over as part of his contest.`,
+  vYuno:`Rapper Yuno Miles’s contest entry on his own YouTube channel, one of the most-viewed freestyles over the beat.`,
+  tCharlie:`A TikTok comedy skit by Charlie Curtis-Beard reacting to yet another Drake diss, posted the day the beat dropped. Know Your Meme reports it reached 3.2 million views in 21 hours.`,
+  tJustin:`A TikTok in which creator Oh That’s Justin! reacts to a “BBL Drizzy” diss performed in Japanese, part of a series reviewing entries in other languages.`,
+  tDuolingo:`A TikTok from the Duolingo English Test account in which the brand’s owl mascot joins the “BBL Drizzy” trend.`,
   sFps:`Drake’s official audio upload of “First Person Shooter” with J. Cole on his VEVO channel. It is the player for this song on the Song timeline.`,
   sLikeThat:`The official audio of “Like That” on Future’s VEVO channel, the song with Kendrick’s verse rejecting the “big three.”`,
   sPushUps:`The official audio of Drake’s “Push Ups,” auto-published to YouTube by his label’s distributor (a “Topic” channel).`,
@@ -560,6 +608,8 @@ for(const [k,s] of Object.entries(REF_SUMMARIES)) if(REFS[k]) REFS[k].summary = 
     let body;
     if(r.kind==="journal") body = `${end(r.t)} <i>${r.journal}, ${r.vol}</i>(${r.issue}), ${r.pages}.`;
     else if(r.kind==="video") body = `<i>${r.t}</i> [Video]. YouTube.`;
+    else if(r.kind==="audio") body = `<i>${r.t}</i> [Audio]. SoundCloud.`;
+    else if(r.kind==="tiktok") body = `${r.t.startsWith("[") ? r.t : `<i>${r.t}</i>`} [Video]. TikTok.`;
     else if(r.kind==="ai") body = `<i>${r.t}</i> (${r.ver}) [${r.desc}].`;
     else if(r.kind==="periodical") body = `${end(r.t)} <i>${r.s}</i>.`;
     else body = `<i>${end(r.t)}</i>` + (r.s && r.s!==r.a ? ` ${r.s}.` : "");

@@ -281,6 +281,11 @@ function videoCard(v){
   const title = r ? r.t : (v.title||"");
   const who = r ? r.a.replace(/\.$/,"") : (v.by||"");
   const when = r ? (r.md ? r.md.replace(/^, /,"")+" "+r.y : r.y) : (v.date||"");
+  if(v.platform==="soundcloud"){
+    return `<div class="vcard sc"><iframe src="https://w.soundcloud.com/player/?url=${encodeURIComponent("https://api.soundcloud.com/tracks/"+v.id)}&visual=true&show_artwork=true" title="${esc(plain(title))}" loading="lazy" allow="autoplay; encrypted-media"></iframe>
+      <div class="vbody"><span class="vtype">${v.type}</span><h3>${title}</h3><span class="who">${esc(who)} · ${esc(when)}</span><p class="why">${v.why}</p>
+      <div class="links"><a href="${r.url}" target="_blank" rel="noopener">Open on SoundCloud ↗</a> <span>(<a class="cite" data-k="${v.ref}"></a>)</span></div></div></div>`;
+  }
   if(v.platform==="tiktok"){
     return `<div class="vcard tt"><iframe src="https://www.tiktok.com/embed/v2/${esc(v.id)}" title="${esc(plain(title))}" loading="lazy" allow="encrypted-media; fullscreen" allowfullscreen></iframe>
       <div class="vbody"><span class="vtype">${v.type||"TikTok"}</span><h3>${title}</h3><span class="who">${esc(who)} · ${esc(when)}</span>${v.why?`<p class="why">${v.why}</p>`:""}

@@ -422,7 +422,7 @@ html{scroll-padding-top:72px}
 .msg .md ul,.msg .md ol{margin:0 0 .8em;padding-left:1.3em}
 .msg .md li{margin-bottom:4px}
 .msg .md code,.tools code{font:14px var(--font-mono);background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:0 4px}
-.steps{font:13px var(--font-mono);color:var(--muted);margin:4px 0 10px;padding:4px 10px;border-left:2px dotted var(--line)}
+.msg .steps{display:block;font:13px var(--font-mono);color:var(--muted);margin:4px 0 10px;padding:4px 10px;border-left:2px dotted var(--line)}
 .file{font-size:15px;color:var(--muted)}
 .ask{border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:4px 0 12px;background:var(--paper)}
 .ask .ah{font:600 12px var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin:0 0 6px}
@@ -471,3 +471,20 @@ a.xl:hover{background:color-mix(in srgb,var(--accent) 12%,transparent)}
 .tsbtn{font:600 12px var(--font-mono);border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:1px 8px;margin-left:6px;cursor:pointer}
 .tsbtn:hover{border-color:var(--c)}
 .gcite{font-size:13.5px;color:var(--muted);align-self:center}
+
+/* open-verse case study */
+.flow{list-style:none;margin:22px 0 8px;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;counter-reset:fl}
+.flow li{position:relative;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:12px 14px 12px;counter-increment:fl}
+.flow li::before{content:counter(fl);position:absolute;top:10px;right:12px;font:600 12px var(--font-mono);color:var(--muted)}
+.flow li.key{border-color:color-mix(in srgb,var(--accent) 55%,var(--line));background:color-mix(in srgb,var(--accent) 7%,var(--card))}
+.flow .fd{display:block;font:600 12px var(--font-mono);letter-spacing:.05em;text-transform:uppercase;color:var(--accent)}
+.flow b{display:block;font-size:17px;margin:2px 0 4px}
+.flow p{font-size:15px;margin:0;color:var(--ink)}
+.ovh{font-size:22px;margin:30px 0 10px}
+.ovgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+.ovcard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px}
+.ovcard h4{margin:0 0 6px;font-size:17px}
+.ovcard p{font-size:15.5px;margin:0}
+.ovcols{margin-top:22px}
+.ovcols .local{max-width:none}
+.vcard.sc iframe{width:100%;height:300px;border:0;display:block;aspect-ratio:auto}
